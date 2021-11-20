@@ -1,0 +1,43 @@
+.b-d-container {
+  background-image: url('../images/becomeBroker.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 1110px;
+  height: 482px;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: #2D69B3;
+    mix-blend-mode: color;
+    height: 100%;
+    width: 100%;
+  }
+  .d-card {
+    max-width: 350px;
+    height: 100%;
+    background-color: #2D69B3;
+    position: relative;
+    opacity: 0.9;
+    &::before {
+      background-image: url('../images/bothkeys-white-1.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transform: translateY(-15%);
+      content: '';
+      z-index: -1;
+    }
+    .b-g-start {
+      text-decoration: none;
+      background-color: white;
+      color: #2D69B3;
+      padding: 9px 32px;
+      font-weight: 700;
+      margin: 0 auto;
+    }
+  }
+}

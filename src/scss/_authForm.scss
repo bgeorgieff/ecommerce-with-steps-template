@@ -1,0 +1,76 @@
+.auth-form-container {
+  width: 350px;
+  height: 100%;
+  .auth-form {
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+    background-color: white;
+  }
+  .auth-nav-container {
+    background-color: white;
+    cursor: pointer;
+  }
+}
+
+#uncontrolled-tab-tab-Login,
+#uncontrolled-tab-tab-Register {
+  background-color: white;
+  margin-right: 0.4rem;
+  width: 100%;
+}
+
+.password-container {
+  position: relative;
+  .password-toggle {
+    position: absolute;
+    top: 15%;
+    right: 5%;
+  }
+}
+
+.auth-btn-container {
+  .auth-btn {
+    width: 100%;
+    height: 40px;
+    left: 280px;
+    top: 502px;
+    color: white;
+    background: #2D69B3;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+  }
+}
+
+.auth-tab-container {
+  width: 100% !important;
+  margin: 0 auto;
+  .auth-tab {
+    position: relative;
+    background-color: white;
+    text-align: center;
+    top: 20%;
+    border-radius: 9px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.9rem;
+    font-weight: 700;
+    &::after {
+      position: absolute;
+      background-color: white;
+      content: '';
+      width: 100%;
+      height: 16px;
+      left: 0;
+      bottom: -15px;
+    }
+  }
+  .auth-active {
+    background-color: #ededed;
+    color: #797979;
+  }
+}
+
+.social-btn {
+  padding: 0;
+  background-color: inherit;
+  border: none;
+}

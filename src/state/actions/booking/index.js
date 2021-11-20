@@ -1,0 +1,1 @@
+export * as bookingActions from "../booking/bookingDetails"

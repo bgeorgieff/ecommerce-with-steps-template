@@ -1,0 +1,29 @@
+.footer-position-container {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  padding-top: -314px;
+  .footer {
+    min-height: 314px;
+    background-image: url(../images/pattern-2.png);
+    background-size: contain;
+    background-repeat: repeat;
+    position: relative;
+    background-color: #2D68B3;
+    .footer-content {
+      max-width: 254px;
+      p {
+        color: white;
+        font-weight: 400;
+      }
+    }
+    .footer-nav {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+
+

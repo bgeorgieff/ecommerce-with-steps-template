@@ -1,0 +1,23 @@
+.accordion-button {
+  color: #2D69B3 !important;
+  font-weight: 700;
+  font-family: "Baloo Chettan 2" !important;
+  font-style: normal;
+  font-size: 16px !important;
+  line-height: 95.5%;
+  &::after {
+    background-image: url('../images/accordion-downArrow.png') !important;
+  }
+  &:not(.collapsed) {
+    background-color: white !important;
+    box-shadow: none !important;
+  }
+}
+
+
+
+.faq-radius {
+  border-radius: 10px !important;
+  overflow: hidden;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,40 @@
+// Navigation bg overwritten original bootstrap class
+.bg-light {
+  background-color:rgba(255, 255, 255, 0.911) !important;
+}
+
+.nav-container {
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 900;
+}
+
+.logo {
+  width: 119.91px;
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.navigation-links {
+  color: #2D69B3 !important;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  justify-self: center;
+  text-align: right;
+  &:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 37px;
+    background-color: #2D69B3;
+    color: white !important;
+    border-radius: 16px;
+  }
+}

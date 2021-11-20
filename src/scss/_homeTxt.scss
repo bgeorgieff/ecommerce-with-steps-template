@@ -1,0 +1,124 @@
+$width: 26%;
+
+.header-wrapper {
+  position: relative;
+  width: 100%;
+  background-image: url('../images/home-img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 748px;
+  z-index: 1;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #2D69B3;
+    mix-blend-mode: color;
+
+  }
+  @media screen and(max-width: 576px){
+    height: 960px !important;
+  }
+}
+
+.header-text-container {
+  .w-txt {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FFFFFF;
+    .w-bg {
+      background-color: white;
+      width: $width;
+      margin: 0 auto;
+      @media screen and(max-width: 1200px) {
+        width: calc(#{$width} + 6%) !important;
+      }
+      @media screen and(max-width: 1024px) {
+        width: calc(#{$width} + 9%) !important;
+      }
+      @media screen and(max-width: 992px){
+        width: calc(#{$width} + 15%) !important;
+      }
+      @media screen and(max-width: 768px) {
+        width: calc(#{$width} + 29%) !important;
+      }
+      @media screen and(max-width: 576px){
+        width: calc(#{$width} + 37%) !important;
+      }
+      @media screen and(max-width: 480px) {
+        width: calc(#{$width} + 60%) !important;
+      }
+    }
+    span {
+      display: block;
+      width: 100%;
+      font-weight: 700;
+    }
+  }
+}
+
+.s-form {
+  position: relative;
+  max-width: 620px;
+  height: 80px;
+  margin: 0 auto;
+  .hp-service-tab {
+    background-color: white;
+    cursor: pointer;
+  }
+  .hp-tab-content-container {
+    background-color: white;
+    box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    height: 70px;
+    width: 100%;
+    z-index: 1;
+    @media screen and(max-width: 576px) {
+      height: 170px !important;
+    }
+  }
+  .c-width {
+    width: 190px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+  .c-btn {
+    width: 171px;
+    height: 40px;
+    color: white !important;
+    background-color: #2D69B3;
+    border-radius: 8px;
+    border: none;
+  }
+}
+
+.curve-lines {
+  background-image: url('../images/curve-lines.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate(0, -200px);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+}
+
+.nav-item {
+  transform: translateY(5px);
+  width: 149px;
+}
+
+.activated {
+  z-index: 2;
+}
+
+.deactivated {
+  z-index: 1;
+  a {
+    color:#797979;
+  }
+}

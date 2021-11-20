@@ -1,0 +1,65 @@
+.slider-container {
+  max-width: 1060px; 
+  margin: 0 auto;
+  z-index: -1;
+  .slick-prev {
+    display: block;
+    background-image: url('../images/leftArrow.png') !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @media screen and(max-width: 1024px) {
+      left: 100px;
+    }
+    @media screen and(max-width: 576px) {
+      left: 50px;
+    }
+    &::before {
+      display: none;
+    }
+  }
+  .slick-next {
+    display: block;
+    background-image: url('../images/rightArrow.png') !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @media screen and(max-width: 1024px) {
+      right: 100px;
+    }
+    @media screen and(max-width: 576px) {
+      right: 50px;
+    }
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.partner-link {
+  padding: 8px 46px;
+  background-color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.card-element {
+  background-image: url('../images/curve-lines-reversed.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.all-partners {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 129%;
+  /* or 21px */
+
+  text-align: center;
+  text-decoration-line: underline;
+
+  /* main-blue */
+  color: #2D69B3;
+}

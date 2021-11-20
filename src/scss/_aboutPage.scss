@@ -1,0 +1,31 @@
+.about-h-txt {
+  max-width: 351px;
+}
+
+.about-image-container {
+  width: 350px;
+  height: 404px;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.ceo-image-container {
+  max-width: 570px;
+  max-height: 484px;
+  img {
+    max-width: 100%;
+    max-height: auto;
+  }
+}
+
+.ceo-signature-container {
+  max-width: 316px;
+  max-height: 197px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

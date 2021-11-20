@@ -1,0 +1,193 @@
+import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { GoogleLogin } from "react-google-login";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+import { useDispatch } from "react-redux";
+import { Form, Image } from "react-bootstrap";
+
+import facebookLoginImg from "../../images/facebook-login.svg";
+import googleLoginImg from "../../images/google-login.svg";
+
+const googleOAUTH2ID = process.env.REACT_APP_GOOGLE_ID;
+const facebookID = process.env.REACT_APP_FACEBOOK_ID;
+
+const AuthForm = ({ type }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [showPass, setShowPass] = useState(false);
+  const [showRePass, setShowRePass] = useState(false);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const passwordViewToggle = (e) => {
+    if (e === "password") {
+      setShowPass(!showPass);
+    } else {
+      setShowRePass(!showRePass);
+    }
+  };
+
+  const handleSubmitLogin = (e) => {
+    e.preventDefault();
+  };
+
+  const handleSubmitRegister = (e) => {
+    e.preventDefault();
+  };
+
+  const responseFacebook = async (res) => {
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const googleSuccess = async (res) => {
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+
+    try {
+      dispatch({ type: "AUTH", data: { result, token } });
+      history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const googleFailure = () => {
+    console.log("Google sign in unsuccessful. Try again.");
+  };
+
+  return (
+    <>
+      <Form
+        onSubmit={type === "login" ? handleSubmitLogin : handleSubmitRegister}
+        className="auth-form p-4 rounded"
+      >
+        <Form.Group
+          className="mb-3"
+          controlId={
+            type === "login" ? "formLoginEmail" : "formRegisterUsername"
+          }
+        >
+          {type === "register" ? (
+            <Form.Control
+              type="email"
+              placeholder="Ad Soyad"
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="username"
+            />
+          ) : (
+            ""
+          )}
+        </Form.Group>
+        <Form.Group
+          className="mb-3"
+          controlId={type === "login" ? "formLoginEmail" : "formRegisterEmail"}
+        >
+          <Form.Control
+            type="email"
+            placeholder="E-mail"
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+          />
+        </Form.Group>
+        <Form.Group
+          className="mb-3"
+          controlId={
+            type === "login" ? "formLoginPassword" : "formRegisterPassword"
+          }
+        >
+          <div className="password-container">
+            <Form.Control
+              type={showPass ? "text" : "password"}
+              placeholder="Sifre"
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+            />
+            <Form.Text className="password-toggle">
+              <i
+                onClick={() => passwordViewToggle("password")}
+                className={`main-blue ${
+                  showPass ? "fas fa-eye-slash" : "fas fa-eye"
+                }`}
+              ></i>
+            </Form.Text>
+          </div>
+        </Form.Group>
+        {type === "register" ? (
+          <Form.Group
+            className="mb-3"
+            controlId={
+              type === "login"
+                ? "formLoginRepeatPassword"
+                : "formRegisterRepeatPassword"
+            }
+          >
+            <div className="password-container">
+              <Form.Control
+                type={showRePass ? "text" : "password"}
+                placeholder="Şifrenizi Tekrarlayın"
+                onChange={(e) => setRepeatPassword(e.target.value)}
+                autoComplete="current-password"
+              />
+              <Form.Text className="password-toggle">
+                <i
+                  onClick={() => passwordViewToggle("repassword")}
+                  className={`main-blue ${
+                    showRePass ? "fas fa-eye-slash" : "fas fa-eye"
+                  }`}
+                ></i>
+              </Form.Text>
+            </div>
+          </Form.Group>
+        ) : (
+          ""
+        )}
+        <div className="mb-3 text-end">
+          <Link to="/forgotten-password">Forgot password?</Link>
+        </div>
+        <div className="auth-btn-container text-center">
+          <button type="submit" className="auth-btn">
+            Giriş
+          </button>
+        </div>
+      </Form>
+      {type === "login" ? (
+        <div className="d-flex justify-content-between align-items-center my-5">
+          <div className="mx-2">
+            <FacebookLogin
+              appId={facebookID}
+              autoLoad={false}
+              fields="name, email, picture"
+              callback={responseFacebook}
+              render={(renderProps) => (
+                <button className="social-btn" onClick={renderProps.onClick}>
+                  <Image fluid src={facebookLoginImg} />
+                </button>
+              )}
+            />
+          </div>
+          <div className="mx-2">
+            <GoogleLogin
+              clientId={googleOAUTH2ID}
+              render={(renderProps) => (
+                <button onClick={renderProps.onClick} className="social-btn">
+                  <Image fluid src={googleLoginImg} />
+                </button>
+              )}
+              onSuccess={googleSuccess}
+              onFailure={googleFailure}
+              cookiePolicy="single_host_origin"
+            />
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+    </>
+  );
+};
+
+export default AuthForm;
