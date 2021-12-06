@@ -1,19 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Col, Row } from "react-bootstrap";
+import getWindowSize from "../../utils/getWindowSize";
 
 let _i = 0;
 
 const ProgressBarManual = (props) => {
+  const { width } = getWindowSize();
   const currentStep = useSelector(
     (state) => state.bookingReducer.bookingDetails?.bookingStep
   );
   const { initialState, endState, eventCollection } = props;
   const [progress, setProgress] = useState(initialState);
   const [dotLength, setDotLength] = useState(0);
+  const [mobileWidth, setMobileWidth] = useState(false);
   const dotEvents = useRef([]);
   const line = useRef(null);
   const textEvents = useRef([]);
+  const linesContainer = useRef(null);
   const activeDots = dotEvents.current.length;
 
   const textTransitionBlue = (e) => {
@@ -63,6 +67,11 @@ const ProgressBarManual = (props) => {
         textTransitionBlue(textEvents.current[_i]);
       }
 
+      if (_i === 4) {
+        transitionGreen(dotEvents.current[_i]);
+        textTransitionGreen(textEvents.current[_i]);
+      }
+
       setDotLength(prevSteps.length * 25);
 
       if (prevText.length > 0) {
@@ -88,8 +97,29 @@ const ProgressBarManual = (props) => {
           transitionGrey(e);
         });
       }
+
+      // const getDotPosition = dotEvents.current[_i].getBoundingClientRect();
+      // var x = window.innerWidth / 2;
+      // const ll = x - getDotPosition.x;
+
+      if (mobileWidth) {
+        if (_i === 0) {
+          linesContainer.current.style.transform = `scale(1.5) translateX(32%)`;
+        } else if (_i === 1) {
+          linesContainer.current.style.transform = "scale(1.5) translateX(12%)";
+        } else if (_i === 2) {
+          linesContainer.current.style.transform =
+            "scale(1.5) translateX(-9.5%)";
+        } else if (_i === 3) {
+          linesContainer.current.style.transform =
+            "scale(1.5) translateX(-29%)";
+        } else if (_i === 4) {
+          linesContainer.current.style.transform =
+            "scale(1.5) translateX(-47%)";
+        }
+      }
     }
-  }, [currentStep, dotEvents, activeDots, dotLength]);
+  }, [currentStep, dotEvents, activeDots, dotLength, mobileWidth]);
 
   useEffect(() => {
     if (progress < dotLength && _i > 0 && progress < endState) {
@@ -112,6 +142,14 @@ const ProgressBarManual = (props) => {
     }
   }, [progress, dotLength, endState, initialState]);
 
+  useEffect(() => {
+    if (width < 576) {
+      setMobileWidth(true);
+    } else {
+      setMobileWidth(false);
+    }
+  }, [width]);
+
   const textRef = (el) => {
     if (el && !textEvents.current.includes(el)) {
       textEvents.current.push(el);
@@ -125,7 +163,7 @@ const ProgressBarManual = (props) => {
   };
 
   return (
-    <>
+    <div ref={linesContainer} className="lines-container">
       <Row className="gx-0">
         <Col className="mx-5">
           <div className="timeline-line-grey">
@@ -159,7 +197,7 @@ const ProgressBarManual = (props) => {
             ))
           : ""}
       </Row>
-    </>
+    </div>
   );
 };
 

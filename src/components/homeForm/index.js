@@ -43,20 +43,24 @@ const HomeForm = () => {
       <Row className="gx-0">
         <Nav className="d-flex justify-content-start">
           <Nav.Item
-            className={`hp-service-tab me-2 rounded ${
+            className={`hp-service-tab me-lg-2 me-1 rounded ${
               activeClass ? "activated" : "deactivated"
             }`}
             onClick={handleClass}
           >
-            <Nav.Link eventKey="copyKey" className="text-center">Copy Key</Nav.Link>
+            <Nav.Link eventKey="copyKey" className="text-center">
+              Copy Key
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item
-            className={`hp-service-tab me-2 rounded ${
+            className={`hp-service-tab me-lg-2 me-0 rounded ${
               activeClass ? "deactivated" : "activated"
             }`}
             onClick={handleClass}
           >
-            <Nav.Link eventKey="lostKey" className="text-center">Lost Key</Nav.Link>
+            <Nav.Link eventKey="lostKey" className="text-center">
+              Lost Key
+            </Nav.Link>
           </Nav.Item>
         </Nav>
       </Row>

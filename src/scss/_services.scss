@@ -1,6 +1,6 @@
 .bg-keys {
   position: relative;
-  background-image: url('../images/keys-pattern.png');
+  background-image: url("../images/keys-pattern.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@
   align-items: center;
   width: 160px;
   height: 41px;
-  background-color: #2D69B3;
+  background-color: #2d69b3;
   border-radius: 5px;
   color: white;
   font-weight: 900;

@@ -16,7 +16,7 @@ const LocationForm = ({ address, city, possibleLocations }) => {
         <Form.Group controlId="">
           <div className="mt-5">
             <Form.Select
-              className="location-placeholder"
+              className="location-placeholder booking-forms-down-arrow"
               aria-label="Default select"
               defaultValue={address || "Choose District"}
               onChange={(e) => address(e.target.value)}
@@ -32,7 +32,7 @@ const LocationForm = ({ address, city, possibleLocations }) => {
           </div>
           <div className="my-4">
             <Form.Select
-              className="location-placeholder"
+              className="location-placeholder booking-forms-down-arrow"
               aria-label="Default select"
               defaultValue={city || "Choose District"}
               onChange={(e) => city(e.target.value)}

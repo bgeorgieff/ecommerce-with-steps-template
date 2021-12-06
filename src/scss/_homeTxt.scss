@@ -3,22 +3,25 @@ $width: 26%;
 .header-wrapper {
   position: relative;
   width: 100%;
-  background-image: url('../images/home-img.png');
+  background-image: url("../images/home-img.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 748px;
   z-index: 1;
   &::before {
     position: absolute;
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
-    background-color: #2D69B3;
+    background-color: #2d69b3;
     mix-blend-mode: color;
-
+    top: 0;
+    left: 0;
   }
-  @media screen and(max-width: 576px){
+  @media screen and(max-width: 992px) {
     height: 960px !important;
+    background-size: cover;
+    background-position: center;
   }
 }
 
@@ -28,7 +31,7 @@ $width: 26%;
     font-weight: normal;
     font-size: 48px;
     line-height: 58px;
-    color: #FFFFFF;
+    color: #ffffff;
     .w-bg {
       background-color: white;
       width: $width;
@@ -39,13 +42,13 @@ $width: 26%;
       @media screen and(max-width: 1024px) {
         width: calc(#{$width} + 9%) !important;
       }
-      @media screen and(max-width: 992px){
+      @media screen and(max-width: 992px) {
         width: calc(#{$width} + 15%) !important;
       }
       @media screen and(max-width: 768px) {
         width: calc(#{$width} + 29%) !important;
       }
-      @media screen and(max-width: 576px){
+      @media screen and(max-width: 576px) {
         width: calc(#{$width} + 37%) !important;
       }
       @media screen and(max-width: 480px) {
@@ -65,9 +68,24 @@ $width: 26%;
   max-width: 620px;
   height: 80px;
   margin: 0 auto;
+  @media screen and(max-width: 992px) {
+    max-width: 90% !important;
+  }
   .hp-service-tab {
     background-color: white;
     cursor: pointer;
+    @media screen and(max-width: 992px) {
+      width: 49.7%;
+    }
+    @media screen and(max-width: 737px) {
+      width: 49.6%;
+    }
+    @media screen and(max-width: 555px) {
+      width: 49.5%;
+    }
+    @media screen and(max-width: 448px) {
+      width: 49.3%;
+    }
   }
   .hp-tab-content-container {
     background-color: white;
@@ -76,8 +94,8 @@ $width: 26%;
     height: 70px;
     width: 100%;
     z-index: 1;
-    @media screen and(max-width: 576px) {
-      height: 170px !important;
+    @media screen and(max-width: 992px) {
+      min-height: 195px !important;
     }
   }
   .c-width {
@@ -85,19 +103,26 @@ $width: 26%;
     height: 40px;
     border: 1px solid black;
     border-radius: 8px;
+    background-image: url("../images/down-arrow-form.svg") !important;
+    @media screen and(max-width: 992px) {
+      width: 90%;
+    }
   }
   .c-btn {
     width: 171px;
     height: 40px;
     color: white !important;
-    background-color: #2D69B3;
+    background-color: #2d69b3;
     border-radius: 8px;
     border: none;
+    @media screen and(max-width: 992px) {
+      width: 90%;
+    }
   }
 }
 
 .curve-lines {
-  background-image: url('../images/curve-lines.png');
+  background-image: url("../images/mobile-curved-lines.svg");
   background-repeat: no-repeat;
   background-size: cover;
   transform: translate(0, -200px);
@@ -105,6 +130,23 @@ $width: 26%;
   width: 100%;
   position: absolute;
   z-index: -10;
+  @media screen and (max-width: 1384px) {
+    background-size: contain;
+    transform: translate(0, -150px);
+  }
+  @media screen and (max-width: 1179px) {
+    transform: translate(0, -110px);
+  }
+  @media screen and(max-width: 992px) {
+    background-position: center;
+    background-size: cover;
+    transform: translate(0, 0);
+  }
+  @media screen and(max-width: 574px) {
+    background-position: center;
+    background-size: 1200px 500px;
+    transform: translate(0, -300px);
+  }
 }
 
 .nav-item {
@@ -119,6 +161,6 @@ $width: 26%;
 .deactivated {
   z-index: 1;
   a {
-    color:#797979;
+    color: #797979;
   }
 }

@@ -15,6 +15,10 @@ const ServiceCard = ({ serviceImg, header, text, cta, styles, serviceId }) => {
       clientDetails: {
         name: clientDetails?.result.name || "",
         token: clientDetails?.result.token || "",
+        email: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
       },
       bookingStep: 0,
     });
@@ -22,8 +26,8 @@ const ServiceCard = ({ serviceImg, header, text, cta, styles, serviceId }) => {
 
   return (
     <Card
-      style={{ width: styles.width, height: styles.height }}
-      className="mx-5 my-5 rounded-card"
+      style={{ width: styles.width, maxHeight: styles.height }}
+      className="mx-1 mx-lg-3 my-3 rounded-card"
     >
       {serviceImg ? (
         <div className="mt-5 mb-2 service-img">

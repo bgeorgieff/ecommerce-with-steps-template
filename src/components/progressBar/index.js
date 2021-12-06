@@ -82,7 +82,7 @@ const Progress = (props) => {
   };
 
   return (
-    <>
+    <div className="line-container">
       <Row className="gx-0">
         <Col className="mx-5">
           <div className="timeline-line">
@@ -94,7 +94,7 @@ const Progress = (props) => {
           </div>
         </Col>
       </Row>
-      <Row className="gx-0">
+      <Row className="gx-0 d-flex dot-container">
         {eventCollection
           ? eventCollection.map((e, i) => (
               <Col key={i}>
@@ -104,19 +104,19 @@ const Progress = (props) => {
                     style={{ color: "white" }}
                   >
                     <div style={{ height: "100%", lineHeight: "130%" }}>
-                      {i + 1}
+                      <div>{i + 1}</div>
                     </div>
                   </div>
                   <div className="image-container">{e.imageBlue}</div>
                 </div>
-                <div ref={textRef} className="text-center">
+                <div ref={textRef} className="text-center step-name-container">
                   <p className="main-blue font-adjust">{e.name}</p>
                 </div>
               </Col>
             ))
           : ""}
       </Row>
-    </>
+    </div>
   );
 };
 

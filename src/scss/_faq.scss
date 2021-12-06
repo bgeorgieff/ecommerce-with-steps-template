@@ -1,20 +1,25 @@
+.accordion-container {
+  @media screen and(max-width: 992px) {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
 .accordion-button {
-  color: #2D69B3 !important;
+  color: #2d69b3 !important;
   font-weight: 700;
   font-family: "Baloo Chettan 2" !important;
   font-style: normal;
   font-size: 16px !important;
   line-height: 95.5%;
   &::after {
-    background-image: url('../images/accordion-downArrow.png') !important;
+    background-image: url("../images/accordion-downArrow.png") !important;
   }
   &:not(.collapsed) {
     background-color: white !important;
     box-shadow: none !important;
   }
 }
-
-
 
 .faq-radius {
   border-radius: 10px !important;

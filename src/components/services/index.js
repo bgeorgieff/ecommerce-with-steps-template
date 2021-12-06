@@ -24,7 +24,7 @@ const Services = ({ cardItems, headerTxt, introduction, bgActive }) => {
                 )}
                 {introduction ? (
                   <p
-                    className="text-center mx-auto my-3"
+                    className="text-center mx-auto my-3 px-sm-0 px-5"
                     style={{ color: "white", maxWidth: "491px" }}
                   >
                     {introduction}

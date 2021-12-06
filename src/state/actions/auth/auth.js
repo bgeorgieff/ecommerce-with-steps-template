@@ -1,7 +1,7 @@
 import { AUTH } from "../constants/actionTypes";
 import { push } from "connected-react-router";
 
-export const signIn = (formdata, history) => async (dispatch) => {
+export const signIn = (formdata) => async (dispatch) => {
   try {
     //log in user
 
@@ -11,7 +11,7 @@ export const signIn = (formdata, history) => async (dispatch) => {
   }
 };
 
-export const signUp = (formdata, history) => async (dispatch) => {
+export const signUp = (formdata) => async (dispatch) => {
   try {
     //sign up user
 

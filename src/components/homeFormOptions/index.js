@@ -5,34 +5,31 @@ const HomeFormOptions = ({ options }) => {
   const [optionListFrom, setOptionListFrom] = useState([]);
   const [optionListTo, setOptionListTo] = useState([]);
   const [optionsFrom, setOptionsFrom] = useState([]);
-  const [optionsTo, setOptionsTo] = useState([])
+  const [optionsTo, setOptionsTo] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   useEffect(() => {
-    setOptionsFrom(options[0].from)
-    setOptionsTo(options[0].to)
-  }, [options])
-
+    setOptionsFrom(options[0].from);
+    setOptionsTo(options[0].to);
+  }, [options]);
 
   return (
     <Tab.Content>
       <Tab.Pane eventKey="copyKey">
         <Form
-          className="d-flex flex-wrap justify-content-center"
+          className="d-flex flex-lg-row flex-column flex-wrap justify-content-center home-form-menu"
           onSubmit={handleSubmit}
         >
           <Form.Select
-            className="c-width me-2 align-self-center mt-3"
+            className="c-width me-lg-2 me-0 align-self-center mt-3"
             aria-label="Default select"
             onChange={(e) => setOptionListTo(e.target.value)}
             defaultValue="Choose City"
           >
-            <option disabled>
-              Choose City
-            </option>
+            <option disabled>Choose City</option>
             {optionsFrom ? (
               optionsFrom.map((e) => <option key={e.id}>{e.option}</option>)
             ) : (
@@ -40,7 +37,7 @@ const HomeFormOptions = ({ options }) => {
             )}
           </Form.Select>
           <Form.Select
-            className="c-width mt-3"
+            className="c-width mt-3 align-self-center"
             aria-label="Default select"
             onChange={(e) => setOptionListFrom(e.target.value)}
             defaultValue="Choose District"
@@ -52,7 +49,7 @@ const HomeFormOptions = ({ options }) => {
               <option>No Options</option>
             )}
           </Form.Select>
-          <div className="d-flex ms-lg-4 mt-3 mt-xs-5">
+          <div className="d-flex ms-lg-4 mt-3 mt-xs-5 justify-content-center">
             <button type="submit" className="c-btn">
               Find dealer →
             </button>

@@ -1,19 +1,24 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Image } from "react-bootstrap";
-import logoB from "../../images/Logo-blue.png";
-import logoW from "../../images/Logo-white.png";
+import logoB from "../../images/Logo-blue.svg";
+import logoW from "../../images/Logo-white.svg";
 
-const Logo = ({ color }) => {
+const Logo = ({ color, style }) => {
   return (
-    <Link to="/" alt="Online Anahtar logo">
-      <div className='logo'>
+    <NavLink
+      to="/"
+      alt="Online Anahtar logo"
+      style={{ textDecoration: "none" }}
+    >
+      <div className="logo ms-md-1 mx-auto">
         <Image
           className="image-fluid me-1"
           src={color === "blue" ? logoB : logoW}
           alt="Logo Anaftar"
+          style={style}
         />
       </div>
-    </Link>
+    </NavLink>
   );
 };
 

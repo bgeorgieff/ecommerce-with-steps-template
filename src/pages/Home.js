@@ -11,22 +11,34 @@ import { homePageServiceItems } from "../utils/CardCollection";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { useEffect } from "react";
-import { animationActions } from "../state/actions/serviceStep/index"
+import { animationActions } from "../state/actions/serviceStep/index";
+import { testimonialActions } from "../state/actions/testimonials";
+import { partnersActions } from "../state/actions/partners";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { autoAnimate } = bindActionCreators(animationActions, dispatch)
+  const { autoAnimate } = bindActionCreators(animationActions, dispatch);
+  const { getTestimonials } = bindActionCreators(testimonialActions, dispatch);
+  const { getPartnerList } = bindActionCreators(partnersActions, dispatch);
 
   useEffect(() => {
-    autoAnimate(true)
-  }, [autoAnimate])
+    getPartnerList();
+  }, [getPartnerList]);
+
+  useEffect(() => {
+    getTestimonials();
+  }, [getTestimonials]);
+
+  useEffect(() => {
+    autoAnimate(true);
+  }, [autoAnimate]);
 
   return (
     <PageWrapper>
       <HomeHeader />
       <ProcessSteps
-       title={'Process Steps'}
-       text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+        title={"Process Steps"}
+        text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
        molestie leo est, in auctor lectus elementum congue. Nulla neque
        nisi, placerat nec dolor nec, semper sodales mauris.`}
       />

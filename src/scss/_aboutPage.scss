@@ -1,23 +1,94 @@
 .about-h-txt {
   max-width: 351px;
+  @media screen and(max-width: 992px) {
+    max-width: 70%;
+  }
 }
 
-.about-image-container {
-  width: 350px;
-  height: 404px;
-  img {
-    width: 100%;
-    height: auto;
+.about-images-container {
+  position: relative;
+  @media screen and(max-width: 1242px) {
+    height: 500px;
+  }
+  @media screen and(max-width: 992px) {
+    transform: translateX(-8%);
+  }
+  @media screen and(max-width: 748px) {
+    height: 400px;
+  }
+  @media screen and(max-width: 524px) {
+    height: 350px;
+  }
+  @media screen and(max-width: 424px) {
+    height: 300px;
+  }
+  @media screen and(max-width: 391px) {
+    height: 250px;
+  }
+  .about-image-container {
+    position: relative;
     display: block;
+    width: 350px;
+    height: 404px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media screen and(max-width: 1242px) {
+      position: absolute;
+      content: "";
+      width: 350px !important;
+      height: 404px !important;
+      &:nth-child(2) {
+        position: absolute;
+        content: "";
+        width: 350px !important;
+        height: 404px !important;
+        transform: translate(40%, 20%);
+      }
+    }
+    @media screen and(max-width: 748px) {
+      width: 300px !important;
+      height: 354px !important;
+      &:nth-child(2) {
+        width: 300px !important;
+        height: 354px !important;
+      }
+    }
+    @media screen and(max-width: 524px) {
+      width: 250px !important;
+      height: 304px !important;
+      &:nth-child(2) {
+        width: 250px !important;
+        height: 304px !important;
+      }
+    }
+    @media screen and(max-width: 424px) {
+      width: 220px !important;
+      height: 274px !important;
+      &:nth-child(2) {
+        width: 220px !important;
+        height: 274px !important;
+      }
+    }
+    @media screen and(max-width: 391px) {
+      width: 180px !important;
+      height: 234px !important;
+      &:nth-child(2) {
+        width: 180px !important;
+        height: 234px !important;
+      }
+    }
   }
 }
 
 .ceo-image-container {
   max-width: 570px;
   max-height: 484px;
-  img {
-    max-width: 100%;
-    max-height: auto;
+  display: block;
+  @media screen and(min-width: 992px) and(max-width: 1280px) {
+    margin-left: 3rem !important;
   }
 }
 
@@ -27,5 +98,11 @@
   img {
     width: 100%;
     height: auto;
+  }
+}
+
+.ceo-intro-txt-container {
+  @media screen and(max-width: 992px) {
+    margin: 0 auto !important;
   }
 }

@@ -6,11 +6,11 @@
   padding-top: -314px;
   .footer {
     min-height: 314px;
-    background-image: url(../images/pattern-2.png);
+    background-image: url(../images/pattern-2.svg);
     background-size: contain;
     background-repeat: repeat;
     position: relative;
-    background-color: #2D68B3;
+    background-color: #2d68b3;
     .footer-content {
       max-width: 254px;
       p {
@@ -21,9 +21,9 @@
     .footer-nav {
       color: white;
       text-decoration: none;
+      @media screen and(max-width: 748px) {
+        font-weight: 700 !important;
+      }
     }
   }
 }
-
-
-

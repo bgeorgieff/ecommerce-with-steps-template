@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Form, Row } from "react-bootstrap";
@@ -12,7 +12,8 @@ const BookingStepOne = () => {
   const [city, setCity] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState(0);
+  const [addressDetails, setAddressDetails] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
   const bookingDetails = useSelector(
@@ -32,12 +33,13 @@ const BookingStepOne = () => {
         clientDetails: {
           name: clientDetails?.result.name || "",
           token: clientDetails?.result.token || "",
-          address: address,
-          city: city,
-          firstName: firstName,
-          lastName: lastName,
-          phone: phone,
-          email: email,
+          address: address || "",
+          city: city || "",
+          firstName: firstName || "",
+          lastName: lastName || "",
+          phone: phone || "",
+          email: email || "",
+          deliveryDetails: addressDetails || "",
         },
         bookingStep: bookingDetails?.bookingStep,
       });
@@ -58,33 +60,51 @@ const BookingStepOne = () => {
     }
   };
 
+  useEffect(() => {
+    setEmail(bookingDetails.clientDetails?.email);
+    setPhone(bookingDetails.clientDetails?.phone);
+    setFirstName(bookingDetails.clientDetails?.firstName);
+    setLastName(bookingDetails.clientDetails?.lastName);
+    setAddressDetails(bookingDetails.clientDetails?.deliveryDetails);
+  }, [bookingDetails]);
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Row className="my-5">
+        <Row className="mb-5 mt-3">
           <Col
-            sm={12}
-            className="my-5 location-bg d-flex justify-content-center align-items-center"
+            lg={12}
+            className="mt-2 mb-5 my-md-5 location-bg d-flex justify-content-center align-items-center"
           >
-            <LocationForm address={setAddress} city={setCity} possibleLocations={[1, 2, 3]} />
+            <LocationForm
+              address={setAddress}
+              city={setCity}
+              possibleLocations={[1, 2, 3]}
+            />
           </Col>
         </Row>
         <Row className="my-5">
-          <Col className="my-5">
+          <Col className="mt-5">
             <DeliveryDetails
-              email={setEmail}
-              fName={setFirstName}
-              lName={setLastName}
-              phone={setPhone}
+              setEmail={setEmail}
+              setFirstName={setFirstName}
+              setLastName={setLastName}
+              setPhone={setPhone}
+              setAddressDetails={setAddressDetails}
+              emailVal={email}
+              fNameVal={firstName}
+              lNameVal={lastName}
+              phoneVal={phone}
+              addressVal={addressDetails}
             />
           </Col>
         </Row>
         <div className="d-flex justify-content-center mb-5">
-          <BookingStepButtons handlePrevStep={handlePrevStep} />
+          <BookingStepButtons handlePrevStep={handlePrevStep} type={"submit"} />
         </div>
       </Form>
     </>
-  ); 
+  );
 };
 
 export default BookingStepOne;

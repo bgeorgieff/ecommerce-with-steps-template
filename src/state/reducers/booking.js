@@ -1,6 +1,8 @@
 import {
   NEXT_STEP,
   PREVIOUS_STEP,
+  NEW_ORDER,
+  FETCH_CROSSALES,
 } from "../constants/actionTypes";
 
 const initialState = {
@@ -38,6 +40,19 @@ const bookingReducer = (state = initialState, action) => {
           ...action?.data,
           bookingStep: action?.data.bookingStep || 0,
         },
+      };
+    case NEW_ORDER:
+      sessionStorage.clear();
+      return {
+        ...state,
+        bookingDetails: {
+          bookingStep: action?.data.bookingStep || 0,
+        },
+      };
+    case FETCH_CROSSALES:
+      return {
+        ...state,
+        list: action.data,
       };
     default:
       return state;

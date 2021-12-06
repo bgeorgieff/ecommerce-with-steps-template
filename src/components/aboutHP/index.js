@@ -2,17 +2,35 @@ import { Col, Row, Image, Container } from "react-bootstrap";
 import Title from "../title";
 import aboutImage from "../../images/aboutImage.png";
 import { Link } from "react-router-dom";
+import getWindowSize from "../../utils/getWindowSize";
+import { useEffect, useState } from "react";
 
 const AboutHomePage = () => {
+  const { width } = getWindowSize();
+  const [mobileWidth, setMobileWidth] = useState(false);
+
+  useEffect(() => {
+    if (width < 748) {
+      setMobileWidth(true);
+    } else {
+      setMobileWidth(false);
+    }
+  }, [width]);
+
   return (
-    <Container className="my-5">
+    <Container fluid className="my-5 px-0">
       <Row
         style={{ maxWidth: "960px" }}
-        className="mx-auto d-flex justify-content-center align-items-center"
+        className="mx-auto d-flex justify-content-center align-items-center gx-0"
       >
-        <Col lg={6} sm={12}>
-          <div className="about-text-container pe-sm-0 me-sm-0 pe-lg-5 me-lg-5">
-            <Title text={"About Us"} style={{ textAlign: "left" }} />
+        <Col lg={6} sm={12} className="mx-auto order-lg-0 order-1 mt-5 mt-lg-0">
+          <div className="about-text-container pe-lg-5 mx-5 mx-lg-2">
+            <Title
+              text={"About Us"}
+              style={
+                mobileWidth ? { textAlign: "center" } : { textAlign: "left" }
+              }
+            />
             <p className="my-3">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
               molestie leo est, in auctor lectus elementum congue. Nulla neque
@@ -29,7 +47,7 @@ const AboutHomePage = () => {
             </div>
           </div>
         </Col>
-        <Col lg={6} sm={12} className="mt-5 mt-lg-0">
+        <Col lg={6} md={12} className="order-lg-1 order-0 mb-5 mb-lg-0">
           <div className="a-i-container mx-auto">
             <Image fluid className="about-image" src={aboutImage} />
           </div>

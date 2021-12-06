@@ -4,7 +4,7 @@
   .location-form-container {
     width: 445px;
     height: 331px;
-    background-color: #2D69B3;
+    background-color: #2d69b3;
     transform: translateX(-55%);
     position: relative;
     overflow: hidden;
@@ -17,33 +17,43 @@
       background-repeat: no-repeat;
       height: 253px;
       width: 173px;
-      content: '';
+      content: "";
       top: 10%;
       left: -20%;
       z-index: -1;
+      @media screen and(max-width: 992px) {
+        display: none;
+      }
     }
-    @media screen and(max-width: 1200px) {
-      transform: translateX(0);
+    @media screen and(max-width: 992px) {
+      transform: translate(0, 160px);
     }
     .location-form-text-container {
       p {
         color: white;
       }
-      
     }
     .location-placeholder {
       color: #2d69b3 !important;
-      border: 1px solid #2D69B3;
+      border: 1px solid #2d69b3;
       box-sizing: border-box;
       border-radius: 8px;
-      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      background-image: url("../images/down-arrow-step-2svg.svg") !important;
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: #2d69b3 !important;
       }
-      &::-ms-input-placeholder { /* Internet Explorer 10-11 */
+      &::-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
         color: #2d69b3 !important;
       }
-      &::-ms-input-placeholder { /* Microsoft Edge */
+      &::-ms-input-placeholder {
+        /* Microsoft Edge */
         color: #2d69b3 !important;
+      }
+      @media screen and(max-width: 992px) {
+        width: 90%;
+        margin: 0 auto;
       }
     }
   }
@@ -55,31 +65,35 @@
     background-repeat: no-repeat;
     height: 494px;
     width: 100%;
-    content: '';
+    content: "";
     top: -25%;
     right: 5%;
     z-index: -1;
     @media screen and(max-width: 1200px) {
       right: 0;
     }
-    @media screen and(max-width: 576px) {
-      display: none;
-    }
   }
   &::before {
     position: absolute;
-    background-image: url("../images/location-big.png");
+    background-image: url("../images/location-big.svg");
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;
     height: 337px;
     width: 230px;
-    content: '';
+    content: "";
     top: -7%;
     right: 20%;
     z-index: 0;
-    @media screen and(max-width: 576px) {
-      display: none;
+    @media screen and(max-width: 992px) {
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      transform: scale(0.6) translateY(-5rem);
+      z-index: 1;
+    }
+    @media screen and(max-width: 572px) {
+      transform: scale(0.5) translateY(-3rem);
     }
   }
 }
@@ -98,8 +112,8 @@
 // Delivery Form
 .delivery-form {
   margin: 0 auto;
-  background-color: #2D69B3;
-  height: 331px;
+  background-color: #2d69b3;
+  min-height: 331px;
   width: 60%;
   .delivery-form-checkbox {
     color: white;
@@ -111,11 +125,14 @@
       border-radius: 5px;
     }
   }
+  @media screen and(max-width: 992px) {
+    margin-top: 5rem;
+  }
 }
 
 .delivery-info-form {
   width: 40%;
-  background-color: #3982DC;
+  background-color: #3982dc;
 }
 
 .bradius {
@@ -126,21 +143,29 @@
 
 .delivery-info-text {
   color: white;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+}
+
+p.delivery-info-text {
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .delivery-input {
   width: 100%;
-  background-color: #2D69B3;
+  background-color: #2d69b3;
   border: 1px solid white;
   border-radius: 8px;
   transition: 0.3s ease-in-out;
   color: white;
   &::placeholder {
-    color: #DCD9D9;
+    color: #dcd9d9;
     font-weight: 300 !important;
   }
   &:focus {
-    background-color: #2D69B3;
+    background-color: #2d69b3;
     outline: 0.1px solid rgba(255, 255, 255, 0.445);
     border-radius: 8px;
     color: white;
@@ -149,16 +174,16 @@
 }
 
 .delivery-text-area {
-  background-color: #3982DC;
+  background-color: #3982dc;
   color: white;
   border-radius: 8px;
   &::placeholder {
     padding: 0 0 0 0.5rem;
-    color: #DCD9D9;
+    color: #dcd9d9;
     font-weight: 300 !important;
   }
   &:focus {
-    background-color: #3982DC;
+    background-color: #3982dc;
     color: white;
     outline: 0.1px solid rgba(255, 255, 255, 0.445);
     border-radius: 8px;
@@ -167,7 +192,8 @@
 }
 
 @media screen and(max-width: 1024px) {
-  .delivery-form, .delivery-info-form {
+  .delivery-form,
+  .delivery-info-form {
     width: 100% !important;
   }
 }
