@@ -1,0 +1,49 @@
+//Location
+.location-bg {
+  position: relative;
+  &::after {
+    position: absolute;
+    background-image: url("../../assets/images/anna-berdnik-0n0AHB1fgTQ.png");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 494px;
+    width: 100%;
+    content: "";
+    top: -25%;
+    right: 5%;
+    z-index: -1;
+    @media screen and(max-width: 1200px) {
+      right: 0;
+    }
+  }
+  &::before {
+    position: absolute;
+    background-image: url("../../assets/icons/location-big.svg");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 337px;
+    width: 230px;
+    content: "";
+    top: -7%;
+    right: 20%;
+    z-index: 0;
+    @media screen and(max-width: 992px) {
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      transform: scale(0.6) translateY(-5rem);
+      z-index: 1;
+    }
+    @media screen and(max-width: 572px) {
+      transform: scale(0.5) translateY(-3rem);
+    }
+  }
+}
+
+// .select-side {
+//   display: none;
+// }
+
+// Delivery Form

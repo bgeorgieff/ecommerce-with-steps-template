@@ -16,7 +16,7 @@ export const nextStep = (details) => async (dispatch) => {
       delete details.cardDetails;
     }
 
-    dispatch(push(`/service-page/${details.serviceId}/step-${stepForward}`));
+    dispatch(push(`/service-page/${details.serviceName}/step-${stepForward}`));
     dispatch({
       type: NEXT_STEP,
       data: {
@@ -36,7 +36,7 @@ export const prevStep = (details) => async (dispatch) => {
     if (stepBack === 0) {
       dispatch(push("/service-page"));
     } else {
-      dispatch(push(`/service-page/${details.serviceId}/step-${stepBack}`));
+      dispatch(push(`/service-page/${details.serviceName}/step-${stepBack}`));
     }
     dispatch({
       type: PREVIOUS_STEP,

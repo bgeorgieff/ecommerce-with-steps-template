@@ -1,4 +1,4 @@
-import crossaleOptionScreen from "../images/crossaleOptionScreen.png";
+import crossaleOptionScreen from "../assets/images/crossaleOptionScreen.png";
 
 export const crossSaleOptions = [
   {

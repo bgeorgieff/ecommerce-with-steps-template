@@ -1,12 +1,12 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ScrollToTop from "./ScrollTopTop";
-import HomePage from "./pages/Home";
-import AuthPage from "./pages/AuthPage";
-import BookingPage from "./pages/ServicePage";
-import BookingSteps from "./pages/BookingSteps";
-import About from "./pages/About";
-import Logout from "./pages/LogOut";
+import HomePage from "./pages/Home/Home";
+import AuthPage from "./pages/AuthPage/AuthPage";
+import BookingPage from "./pages/ServicePage/ServicePage";
+import BookingSteps from "./pages/BookingSteps/BookingSteps";
+import About from "./pages/About/About";
+import Logout from "./pages/LogOut/LogOut";
 
 const Navigation = () => {
   const isLogged = useSelector((store) => store.authReducer.authData);

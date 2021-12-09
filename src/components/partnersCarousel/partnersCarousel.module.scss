@@ -1,0 +1,78 @@
+.slider-container {
+  max-width: 920px;
+  margin: 0 auto;
+  z-index: 1;
+  :global(.slick-prev) {
+    display: block;
+    background-image: url("../../assets/icons/leftArrow.svg") !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 2;
+    @media screen and(max-width: 1040px) {
+      left: 2px;
+    }
+    @media screen and(max-width: 940px) {
+      left: 130px;
+    }
+    @media screen and(max-width: 582px) {
+      left: 25px;
+    }
+    @media screen and(max-width: 340px) {
+      left: 5px;
+    }
+    &::before {
+      display: none;
+    }
+    &::after {
+      display: none;
+    }
+  }
+  :global(.slick-next) {
+    display: block;
+    background-image: url("../../assets/icons/rightArrow.svg") !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 2;
+    @media screen and(max-width: 1040px) {
+      right: 2px;
+    }
+    @media screen and(max-width: 940px) {
+      right: 130px;
+    }
+    @media screen and(max-width: 582px) {
+      right: 20px;
+    }
+    @media screen and(max-width: 340px) {
+      right: 5px;
+    }
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.partner-link {
+  padding: 8px 46px;
+  background-color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.card-element {
+  background-image: url("../../assets/icons/curve-lines-reversed.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.all-partners {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 129%;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #2d69b3;
+}

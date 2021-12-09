@@ -1,24 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
-@import "./scss/typography";
-@import "./scss/navbar";
-@import "./scss/homeTxt";
-@import "./scss/processSteps";
-@import "./scss/services";
-@import "./scss/testimonials";
-@import "./scss/about";
-@import "./scss/becomeDealer";
-@import "./scss/footer";
-@import "./scss/carousel";
-@import "./scss/faq";
-@import "./scss//authForm";
-@import "./scss/aboutPage";
-@import "./scss/bookingPage";
-@import "./scss/bookingStepOne";
-@import "./scss/bookingStepTwo";
-@import "./scss/bookingStepThree.scss";
-@import "./scss/bookingStepFour.scss";
+@import "./assets/scss/typography";
 
 html {
   position: relative;
@@ -80,7 +63,7 @@ html {
 
 // Keys Background
 .fluid-keys-container {
-  background-image: url("./images/one-key-wifi-1.svg");
+  background-image: url("./assets/icons/one-key-wifi-1.svg");
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
@@ -89,7 +72,7 @@ html {
   background-repeat: no-repeat;
   position: relative;
   &::before {
-    background-image: url("./images/one-key-wifi-2.svg");
+    background-image: url("./assets/icons/one-key-wifi-2.svg");
     background-position: right top;
     background-repeat: no-repeat;
     -webkit-background-size: auto;
@@ -117,7 +100,7 @@ html {
   background-color: rgba(255, 255, 255, 0.932);
   position: relative;
   &::before {
-    background-image: url("./images/curved-lines-right.png");
+    background-image: url("./assets/icons/curved-lines-right.svg");
     background-position: right bottom;
     background-repeat: no-repeat;
     -webkit-background-size: contain;
@@ -132,7 +115,7 @@ html {
     z-index: -1;
   }
   &::after {
-    background-image: url("./images/curved-lines-left.png");
+    background-image: url("./assets/icons/curved-lines-left.svg");
     background-position: left bottom;
     -webkit-background-size: contain;
     -moz-background-size: contain;
@@ -157,7 +140,7 @@ html {
     height: 100%;
     width: 100%;
     top: -8%;
-    background-image: url("./images/one-key-wifiw.svg");
+    background-image: url("./assets/icons/one-key-wifiw.svg");
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;

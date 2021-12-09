@@ -6,6 +6,7 @@ import autoAnimateReducer from "./autoAnimate";
 import crossSaleReducer from "./crossSale";
 import testimonialReducer from "./testimonials";
 import partnerListReducer from "./partners";
+import formOptionsReducer from "./formOptions";
 
 const createRootReducer = (history) =>
   combineReducers({
@@ -16,6 +17,7 @@ const createRootReducer = (history) =>
     crossSaleReducer,
     testimonialReducer,
     partnerListReducer,
+    formOptionsReducer,
   });
 
 export default createRootReducer;

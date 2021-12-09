@@ -1,6 +1,6 @@
-import image1 from "../images/Ellipse16.png";
-import image2 from "../images/Ellipse16-1.png";
-import image3 from "../images/Ellipse16-2.png";
+import image1 from "../assets/images/Ellipse16.png";
+import image2 from "../assets/images/Ellipse16-1.png";
+import image3 from "../assets/images/Ellipse16-2.png";
 
 const fakePartnerList = [
   {

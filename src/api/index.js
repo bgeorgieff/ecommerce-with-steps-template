@@ -4,11 +4,18 @@ import {
   createUserUrl,
   loginUserUrl,
   crossSalesListUrl,
+  smallFormOptionsUrl,
 } from "./url";
 
-import fakeTestimonials from "../utils/fakeTestimonials";
-import fakePartnerList from "../utils/fakePartnerList";
-import { crossSaleOptions } from "../utils/fakeCrossSaleList";
+import fakeTestimonials from "utils/fakeTestimonials";
+import fakePartnerList from "utils/fakePartnerList";
+import { fakeSmallFormOptions } from "utils/fakeSmallFormOptions";
+import { crossSaleOptions } from "utils/fakeCrossSaleList";
+
+export const fetchSmallFormOptions = () => {
+  return fakeSmallFormOptions;
+  // axios.get(smallFormOptionsUrl)
+};
 
 export const fetchTestimonials = () => {
   return fakeTestimonials;
