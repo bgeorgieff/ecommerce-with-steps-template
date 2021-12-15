@@ -1,22 +1,31 @@
 import { Col, Row, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
-import facebookIcon from "../../assets/icons/fb-nav-img-white.svg";
-import instaIcon from "../../assets/icons/insta-nav-img-white.svg";
+import facebookIcon from "assets/icons/fb-nav-img-white.svg";
+import instaIcon from "assets/icons/insta-nav-img-white.svg";
 import styles from "./footer.module.scss";
 import { useWindowSize } from "hooks";
+import clsx from "clsx";
 
 const Footer = () => {
   const mobileWidth = useWindowSize("md");
 
   return (
-    <Container fluid className={`${styles["footer-position-container"]} gx-0`}>
-      <Row className={`${styles["footer"]} pt-5 justify-content-center gx-0`}>
+    <Container
+      fluid
+      className={clsx(styles["footer-position-container"], "gx-0")}
+    >
+      <Row
+        className={clsx(styles["footer"], "pt-5 justify-content-center gx-0")}
+      >
         <Col className="mx-auto col-12">
           <Row style={{ maxWidth: "1024px" }} className="mx-auto gx-0">
             <Col md={3} className="mx-auto gx-0">
               <div
-                className={`${styles["footer-content"]} mx-auto text-md-start text-center`}
+                className={clsx(
+                  styles["footer-content"],
+                  "mx-auto text-md-start text-center"
+                )}
               >
                 <Logo style={mobileWidth ? { transform: "scale(1.6)" } : {}} />
                 <div className="mt-lg-3 mt-5">
@@ -29,35 +38,53 @@ const Footer = () => {
             </Col>
             <Col md={2} className="mx-auto gx-0 order-1 order-md-0">
               <div
-                className={`${styles["footer-content"]} mx-auto d-flex flex-column`}
+                className={clsx(
+                  styles["footer-content"],
+                  "mx-auto d-flex flex-column"
+                )}
               >
                 <NavLink
                   to="/"
-                  className={`${styles["footer-nav"]} text-md-start text-center`}
+                  className={clsx(
+                    styles["footer-nav"],
+                    "text-md-start text-center"
+                  )}
                 >
                   Home
                 </NavLink>
                 <NavLink
                   to="/service-page"
-                  className={`${styles["footer-nav"]} text-md-start text-center`}
+                  className={clsx(
+                    styles["footer-nav"],
+                    "text-md-start text-center"
+                  )}
                 >
                   Services
                 </NavLink>
                 <NavLink
                   to="/franchising"
-                  className={`${styles["footer-nav"]} text-md-start text-center`}
+                  className={clsx(
+                    styles["footer-nav"],
+                    "text-md-start text-center"
+                  )}
                 >
                   Franchising
                 </NavLink>
                 <NavLink
                   to="/about-us"
-                  className={`${styles["footer-nav"]} text-md-start text-center`}
+                  className={clsx(
+                    styles["footer-nav"],
+                    "text-md-start text-center"
+                  )}
                 >
                   About
                 </NavLink>
                 <NavLink
                   to="/contact"
-                  className={`${styles["footer-nav"]} text-md-start text-center`}
+                  className={clsx(
+                    styles["footer-nav"],
+                    "text-md-start text-center"
+                  )}
                 >
                   Contact
                 </NavLink>
@@ -65,17 +92,26 @@ const Footer = () => {
             </Col>
             <Col md={2} className="mx-auto gx-0 order-1 order-md-0">
               <div
-                className={`${styles["footer-content"]} mx-auto d-flex flex-column`}
+                className={clsx(
+                  styles["footer-content"],
+                  "mx-auto d-flex flex-column"
+                )}
               >
                 <NavLink
                   to="/privacy-policy"
-                  className={`${styles["footer-nav"]} text-md-start text-center`}
+                  className={clsx(
+                    styles["footer-nav"],
+                    "text-md-start text-center"
+                  )}
                 >
                   Privacy Policy
                 </NavLink>
                 <NavLink
                   to="/terms-and-conditions"
-                  className={`${styles["footer-nav"]} text-md-start text-center`}
+                  className={clsx(
+                    styles["footer-nav"],
+                    "text-md-start text-center"
+                  )}
                 >
                   Terms Of Use
                 </NavLink>
@@ -83,7 +119,10 @@ const Footer = () => {
             </Col>
             <Col md={2} className="mx-auto gx-0 order-0 order-md-1">
               <div
-                className={`${styles["footer-content"]} mx-auto text-md-start text-center my-md-0 my-4`}
+                className={clsx(
+                  styles["footer-content"],
+                  "mx-auto text-md-start text-center my-md-0 my-4"
+                )}
               >
                 <a
                   href="https://facebook.com"

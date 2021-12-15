@@ -5,7 +5,7 @@ import {
   FETCH_CROSSALES,
 } from "../../constants/actionTypes";
 import { push } from "connected-react-router";
-import * as api from "../../../api";
+import * as api from "api";
 
 export const nextStep = (details) => async (dispatch) => {
   // TODO ON STEP 2 FETCH CAR MAKE AND MODEL AND FILL IN KEYS FOR STEP 3

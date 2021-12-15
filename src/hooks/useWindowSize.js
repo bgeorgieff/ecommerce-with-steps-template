@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import PropTypes from "prop-types";
-
-const { useState } = require("react");
+import { useEffect, useState } from "react";
 
 const breakPoints = {
   lg: 992,
@@ -10,18 +7,12 @@ const breakPoints = {
 };
 
 const useWindowSize = (type) => {
-  const { innerWidth: width } = window;
+  const [width, setWidth] = useState(window.innerWidth);
   const [mobileWidth, setMobileWidth] = useState(false);
-
-  const withPropTypesValidation = (e) => {
-    PropTypes.checkPropTypes(propTypes, e, "props", "WindowSize");
-  };
 
   useEffect(() => {
     if (!breakPoints.hasOwnProperty(type)) {
-      return;
-    } else {
-      withPropTypesValidation({ type });
+      console.error("There is no such option");
     }
 
     if (breakPoints[type] > width) {
@@ -29,12 +20,15 @@ const useWindowSize = (type) => {
     } else {
       setMobileWidth(false);
     }
-  }, [width, mobileWidth, type]);
-  return mobileWidth;
-};
 
-const propTypes = {
-  type: PropTypes.string.isRequired,
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth);
+    });
+
+    return () => window.removeEventListener("resize", null);
+  }, [width, mobileWidth, type]);
+
+  return mobileWidth;
 };
 
 export default useWindowSize;

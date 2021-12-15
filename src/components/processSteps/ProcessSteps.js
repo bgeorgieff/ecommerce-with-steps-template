@@ -1,29 +1,16 @@
 import { useState } from "react";
 import { useInViewEffect } from "react-hook-inview";
 import { Row, Col, Container } from "react-bootstrap";
-import Progress from "./progressBar/progressBar";
 import { Title } from "components";
-import { bookingSteps } from "./steps/bookingSteps";
+import { bookingSteps } from "./steps";
 import { useSelector } from "react-redux";
-import ProgressBarManual from "./progressBarManual/progressBarManual";
+import { ProgressBarManual } from "./ProgressBarManual";
+import { ProgressBar } from "./ProgressBar";
 import PropTypes from "prop-types";
 
 const ProcessSteps = (props) => {
   const [isVisible, setIsVisible] = useState(false);
   const autoAnimateState = useSelector((state) => state.autoAnimateReducer);
-
-  const titleStyle = { textAlign: "center" };
-
-  const titleProps = {
-    text: props.title,
-    style: titleStyle,
-  };
-
-  const processProps = {
-    visible: isVisible,
-    initialState: 1,
-    eventCollection: bookingSteps,
-  };
 
   const visibilityRef = useInViewEffect(
     ([entry], observer) => {
@@ -44,7 +31,13 @@ const ProcessSteps = (props) => {
     >
       <Row className="gx-0">
         <Col lg={12} sm={12} style={{ zIndex: "1" }}>
-          {props.title ? <Title {...titleProps} /> : ""}
+          {props.children?.title ? (
+            <Title style={{ textAlign: "center" }}>
+              {props.children?.title}
+            </Title>
+          ) : (
+            ""
+          )}
           <div
             style={{ maxWidth: "583px" }}
             className={
@@ -53,16 +46,18 @@ const ProcessSteps = (props) => {
                 : "d-block mx-auto my-5 gx-0"
             }
           >
-            {props.text ? (
-              <p className="text-center pb-5 main-font px-2">{props.text}</p>
+            {props.children?.text ? (
+              <p className="text-center pb-5 main-font px-2">
+                {props.children?.text}
+              </p>
             ) : (
               ""
             )}
             <div ref={visibilityRef} className="mt-6">
               {autoAnimateState ? (
-                <Progress {...processProps} />
+                <ProgressBar visible={isVisible}>{bookingSteps}</ProgressBar>
               ) : (
-                <ProgressBarManual {...processProps} />
+                <ProgressBarManual>{bookingSteps}</ProgressBarManual>
               )}
             </div>
           </div>

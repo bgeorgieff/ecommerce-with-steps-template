@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { Title } from "components";
-import CarouselItem from "./carouselItem/carouselItem";
+import { CarouselItem } from "./CarouselItem";
 import {
   CarouselArrowNext,
   CarouselArrowPrev,
@@ -12,13 +12,6 @@ import styles from "./partnersCarousel.module.scss";
 
 const PartnersCarousel = () => {
   const partners = useSelector((state) => state.partnerListReducer);
-
-  const titleStyle = { textAlign: "center" };
-
-  const titleProps = {
-    text: "Partners",
-    style: titleStyle,
-  };
 
   const settings = {
     dots: false,
@@ -47,7 +40,7 @@ const PartnersCarousel = () => {
     <Container fluid className="fluid-keys-container gx-0 py-5">
       <Row className="gx-0">
         <Col lg={12} sm={12} style={{ maxWidth: "583px" }} className="mx-auto">
-          <Title {...titleProps} />
+          <Title style={{ textAlign: "center" }}>Partners</Title>
           <div className="mt-5">
             <p className="text-center mx-lg-2 mx-5">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
@@ -63,7 +56,7 @@ const PartnersCarousel = () => {
             {partners ? (
               <Slider {...settings}>
                 {partners.map((e, i) => (
-                  <CarouselItem key={i} {...e} />
+                  <CarouselItem key={i}>{e}</CarouselItem>
                 ))}
               </Slider>
             ) : (

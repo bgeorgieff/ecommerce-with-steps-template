@@ -1,4 +1,4 @@
-import * as api from "../../../api";
+import * as api from "api";
 import { FETCH_PARTNERS } from "../../constants/actionTypes";
 
 export const getPartnerList = () => async (dispatch) => {

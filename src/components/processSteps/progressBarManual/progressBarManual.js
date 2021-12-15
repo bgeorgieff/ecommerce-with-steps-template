@@ -2,17 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Col, Row } from "react-bootstrap";
 import styles from "../processSteps.module.scss";
-import PropTypes from "prop-types";
 import { useWindowSize } from "hooks";
 
 let _i = 0;
 
 const ProgressBarManual = (props) => {
-  const { initialState, eventCollection } = props;
   const mobileWidth = useWindowSize("sm");
   const currentStep = useSelector(
     (state) => state.bookingReducer.bookingDetails?.bookingStep
   );
+  const initialState = 1;
   const endState = 100;
   const [progress, setProgress] = useState(initialState);
   const [dotLength, setDotLength] = useState(0);
@@ -170,8 +169,8 @@ const ProgressBarManual = (props) => {
         </Col>
       </Row>
       <Row className="gx-0">
-        {eventCollection
-          ? eventCollection.map((e, i) => (
+        {props.children
+          ? props.children.map((e, i) => (
               <Col key={i}>
                 <div ref={dots} className={styles["dots-grey"]}>
                   <div
@@ -197,11 +196,6 @@ const ProgressBarManual = (props) => {
       </Row>
     </div>
   );
-};
-
-ProgressBarManual.propTypes = {
-  initialState: PropTypes.number,
-  eventCollection: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default ProgressBarManual;

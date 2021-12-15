@@ -3,7 +3,7 @@ $width: 26%;
 .header-wrapper {
   position: relative;
   width: 100%;
-  background-image: url("../../../assets/images/home-img.png");
+  background-image: url("../../../../assets/images/home-img.png");
   background-size: cover;
   background-repeat: no-repeat;
   height: 768px;
@@ -74,7 +74,7 @@ $width: 26%;
 }
 
 .curve-lines {
-  background-image: url("../../../assets/icons/mobile-curved-lines.svg");
+  background-image: url("../../../../assets/icons/mobile-curved-lines.svg");
   background-repeat: no-repeat;
   background-size: cover;
   transform: translate(0, -200px);

@@ -1,5 +1,5 @@
-import lostKeyImg from "../../../assets/icons/lostkey-1.svg";
-import copyKeyImg from "../../../assets/icons/copykey-1.svg";
+import lostKeyImg from "assets/icons/lostkey-1.svg";
+import copyKeyImg from "assets/icons/copykey-1.svg";
 
 const homePageServiceItems = [
   {

@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { Tab, Nav, Row, Col } from "react-bootstrap";
-import AuthForm from "./AuthForm/AuthForm";
+import { AuthForm } from "./AuthForm";
 import { Title } from "components";
 import styles from "./authSection.module.scss";
+import clsx from "clsx";
 
 const AuthSection = () => {
   const [active, setActive] = useState(false);
-
-  const titleProps = {
-    text: "Merhaba,",
-  };
 
   const handleActiveClass = (e) => {
     if (e.target.classList.contains("active")) {
@@ -20,10 +17,13 @@ const AuthSection = () => {
 
   return (
     <div
-      className={`${styles["auth-form-container"]} d-flex flex-column justify-content-center align-items-center mt-5`}
+      className={clsx(
+        styles["auth-form-container"],
+        "d-flex flex-column justify-content-center align-items-center mt-5"
+      )}
     >
       <div className="mt-5 mb-3">
-        <Title {...titleProps} />
+        <Title>Merhaba,</Title>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie
           leo est.
@@ -33,28 +33,33 @@ const AuthSection = () => {
         <Tab.Container defaultActiveKey="Login">
           <Row className="gx-0">
             <Nav
-              className={`d-flex justify-content-between ${styles["auth-tab-container"]}`}
+              className={clsx(
+                styles["auth-tab-container"],
+                "d-flex justify-content-between"
+              )}
             >
               <Nav.Item
                 as={Col}
-                className={`${styles["auth-nav-container"]} me-1`}
+                className={clsx(styles["auth-nav-container"], "me-1")}
               >
                 <Nav.Link
                   eventKey="Login"
-                  className={`${styles["auth-tab"]} ${
+                  className={clsx(
+                    styles["auth-tab"],
                     active ? styles["auth-active"] : ""
-                  }`}
+                  )}
                   onClick={handleActiveClass}
                 >
                   Giriş Yap
                 </Nav.Link>
               </Nav.Item>
-              <Nav.Item as={Col} className={`${styles["auth-nav-container"]}`}>
+              <Nav.Item as={Col} className={styles["auth-nav-container"]}>
                 <Nav.Link
                   eventKey="Register"
-                  className={`${styles["auth-tab"]} ${
+                  className={clsx(
+                    styles["auth-tab"],
                     !active ? styles["auth-active"] : ""
-                  }`}
+                  )}
                   onClick={handleActiveClass}
                 >
                   Üye Ol

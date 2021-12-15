@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useEffect, useRef } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { getNav } from "../../utils/navigation";
+import { getNav } from "utils/navigation";
 import { Logo } from "components";
-import NavLinks from "./navLinks/navLinks";
+import { NavLinks } from "./NavLinks";
 import styles from "./headerNav.module.scss";
+import clsx from "clsx";
 
 const HeaderNav = () => {
   const user = useSelector((state) => state.authReducer?.authData);
@@ -37,7 +38,7 @@ const HeaderNav = () => {
         <Container
           ref={navContainer}
           fluid
-          className={`mx-3 ${styles["nav-cont"]}`}
+          className={clsx("mx-3", styles["nav-cont"])}
         >
           <div className="my-2 align-self-start">
             <Logo color={"blue"} />
@@ -47,7 +48,7 @@ const HeaderNav = () => {
             style={{ width: "100%" }}
             id={open ? "hidden" : ""}
           >
-            <NavLinks options={links} />
+            <NavLinks>{links}</NavLinks>
           </Nav>
 
           <div

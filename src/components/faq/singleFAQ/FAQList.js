@@ -1,4 +1,4 @@
-export const faq = [
+const faqList = [
   {
     itemHeader: "Lorem ipsum - 1",
     itemBody: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -33,3 +33,5 @@ export const faq = [
     itemKey: 3,
   },
 ];
+
+export default faqList;

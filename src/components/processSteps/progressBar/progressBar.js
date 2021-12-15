@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import styles from "../processSteps.module.scss";
+import clsx from "clsx";
 import PropTypes from "prop-types";
 
-const Progress = (props) => {
-  const { visible, initialState, eventCollection } = props;
+const ProgressBar = (props) => {
+  const { visible } = props;
+  const initialState = 1;
   const endState = 100;
   const [progress, setProgress] = useState(initialState);
   const [index, setIndex] = useState(0);
@@ -97,9 +99,9 @@ const Progress = (props) => {
           </div>
         </Col>
       </Row>
-      <Row className={`gx-0 d-flex ${styles["dot-container"]}`}>
-        {eventCollection
-          ? eventCollection.map((e, i) => (
+      <Row className={clsx("gx-0 d-flex", styles["dot-container"])}>
+        {props.children
+          ? props.children.map((e, i) => (
               <Col key={i}>
                 <div ref={dots} className={styles.dots}>
                   <div
@@ -114,9 +116,9 @@ const Progress = (props) => {
                 </div>
                 <div
                   ref={textRef}
-                  className={`text-center ${styles["step-name-container"]}`}
+                  className={clsx("text-center", styles["step-name-container"])}
                 >
-                  <p className={`main-blue ${styles["font-adjust"]}`}>
+                  <p className={clsx("main-blue", styles["font-adjust"])}>
                     {e.name}
                   </p>
                 </div>
@@ -128,10 +130,10 @@ const Progress = (props) => {
   );
 };
 
-Progress.propTypes = {
+ProgressBar.propTypes = {
   visible: PropTypes.bool,
   initialState: PropTypes.number,
   eventCollection: PropTypes.arrayOf(PropTypes.object),
 };
 
-export default Progress;
+export default ProgressBar;

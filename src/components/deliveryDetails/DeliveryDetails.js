@@ -1,11 +1,10 @@
 import { Form, Image, Row, Col } from "react-bootstrap";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import styles from "./deliveryDetails.module.scss";
-import PropTypes from "prop-types";
 
-import portrait from "../../assets/icons/portrait-booking-form.svg";
-import facebookLoginImg from "../../assets/icons/facebook-login.svg";
-import locationcity from "../../assets/icons/location_city.svg";
+import portrait from "assets/icons/portrait-booking-form.svg";
+import facebookLoginImg from "assets/icons/facebook-login.svg";
+import locationcity from "assets/icons/location_city.svg";
 import { useWindowSize } from "hooks";
 
 const facebookID = process.env.REACT_APP_FACEBOOK_ID;
@@ -57,8 +56,8 @@ const DeliveryDetails = (props) => {
                   type="text"
                   placeholder="First Name"
                   className={styles.input}
-                  onChange={(e) => props.setFirstName(e.target.value)}
-                  value={props.fNameVal || ""}
+                  defaultValue={props.fNameVal || ""}
+                  {...props.setFirstName}
                 />
               </Form.Group>
               <Form.Group
@@ -71,8 +70,8 @@ const DeliveryDetails = (props) => {
                   type="text"
                   placeholder="Last Name"
                   className={styles.input}
-                  onChange={(e) => props.setLastName(e.target.value)}
-                  value={props.lNameVal || ""}
+                  defaultValue={props.children.lNameVal || ""}
+                  {...props.setLastName}
                 />
               </Form.Group>
             </Row>
@@ -87,8 +86,8 @@ const DeliveryDetails = (props) => {
                   type="text"
                   placeholder="Phone Number"
                   className={styles.input}
-                  onChange={(e) => props.setPhone(e.target.value)}
-                  value={props.phoneVal || ""}
+                  defaultValue={props.children.phoneVal || ""}
+                  {...props.setPhone}
                 />
               </Form.Group>
               <Form.Group
@@ -101,8 +100,8 @@ const DeliveryDetails = (props) => {
                   type="email"
                   placeholder="E-mail"
                   className={styles.input}
-                  onChange={(e) => props.setEmail(e.target.value)}
-                  value={props.emailVal || ""}
+                  defaultValue={props.children.emailVal || ""}
+                  {...props.setEmail}
                 />
               </Form.Group>
             </Row>
@@ -135,31 +134,14 @@ const DeliveryDetails = (props) => {
               rows={3}
               placeholder="Street, Building Number, etc..."
               className={styles["delivery-text-area"]}
-              onChange={(e) => props.setAddressDetails(e.target.value)}
-              value={props.addressVal || ""}
+              defaultValue={props.children.addressVal || ""}
+              {...props.setAddressDetails}
             />
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-DeliveryDetails.propTypes = {
-  props: PropTypes.arrayOf(
-    PropTypes.exact({
-      setEmail: PropTypes.string,
-      setFirstName: PropTypes.string,
-      setLastName: PropTypes.string,
-      setPhone: PropTypes.string,
-      setAddressDetails: PropTypes.string,
-      emailVal: PropTypes.string,
-      fNameVal: PropTypes.string,
-      lNameVal: PropTypes.string,
-      phoneVal: PropTypes.string,
-      addressVal: PropTypes.string,
-    })
-  ),
 };
 
 export default DeliveryDetails;

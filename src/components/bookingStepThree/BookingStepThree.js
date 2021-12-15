@@ -1,34 +1,26 @@
 import { useState } from "react";
-
 import { Col, Row, Image, Form } from "react-bootstrap";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
-import { bookingActions } from "../../state/actions/booking";
+import { bookingActions } from "state/actions/booking";
 import { CrossSaleCarousel } from "components";
 import BookingStepButtons from "../BookingStepButtons/BookingStepButtons";
 import styles from "./bookingStepThree.module.scss";
+import { useForm } from "react-hook-form";
 
-import key from "../../assets/images/key1.png";
+import key from "assets/images/key1.png";
 
 import CardPaymentForm from "components/CardPaymentForm/CardPaymentForm";
 
 const BookingStepThree = () => {
+  const { register } = useForm();
   const [clickedService, setClickedService] = useState(false);
-  const [cardNumber, setCardNumber] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
-  const [csv, setCSV] = useState("");
   const dispatch = useDispatch();
   const bookingDetails = useSelector(
     (state) => state.bookingReducer.bookingDetails
   );
   const crossSaleList = useSelector((state) => state.bookingReducer?.list);
   const { nextStep, prevStep } = bindActionCreators(bookingActions, dispatch);
-
-  const cardDetailsProps = {
-    setCSV: setCSV,
-    setCardNumber: setCardNumber,
-    setExpiryDate: setExpiryDate,
-  };
 
   const handleServiceClick = (e) => {
     e.preventDefault();
@@ -47,14 +39,13 @@ const BookingStepThree = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     try {
       nextStep({
         ...bookingDetails,
         cardDetails: {
-          cardNumber: cardNumber || "",
-          expiryDate: expiryDate || "",
-          CSV: csv || "",
+          cardNumber: e.cardNumber || "",
+          expiryDate: e.expiryDate || "",
+          CSV: e.csv || "",
         },
       });
     } catch (e) {
@@ -110,10 +101,14 @@ const BookingStepThree = () => {
         </Row>
         <Row>
           <Col>
-            <CrossSaleCarousel list={crossSaleList} />
+            <CrossSaleCarousel>{crossSaleList}</CrossSaleCarousel>
           </Col>
         </Row>
-        <CardPaymentForm {...cardDetailsProps} />
+        <CardPaymentForm
+          setCSV={{ ...register("setCSV") }}
+          setCardNumber={{ ...register("setCardNumber") }}
+          setExpiryDate={{ ...register("setExpiryDate") }}
+        />
         <div className="d-flex justify-content-center my-5">
           <BookingStepButtons {...bookingStepButtonsProps} />
         </div>

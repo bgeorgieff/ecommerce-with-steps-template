@@ -4,18 +4,17 @@ import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import { useDispatch } from "react-redux";
 import { Form, Image } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import styles from "../authSection.module.scss";
 
-import facebookLoginImg from "../../../assets/icons/facebook-login.svg";
-import googleLoginImg from "../../../assets/icons/google-login.svg";
+import facebookLoginImg from "assets/icons/facebook-login.svg";
+import googleLoginImg from "assets/icons/google-login.svg";
 
 const googleOAUTH2ID = process.env.REACT_APP_GOOGLE_ID;
 const facebookID = process.env.REACT_APP_FACEBOOK_ID;
 
 const AuthForm = ({ type }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+  const { register, handleSubmit } = useForm();
   const [showPass, setShowPass] = useState(false);
   const [showRePass, setShowRePass] = useState(false);
   const history = useHistory();
@@ -30,11 +29,11 @@ const AuthForm = ({ type }) => {
   };
 
   const handleSubmitLogin = (e) => {
-    e.preventDefault();
+    console.log(e);
   };
 
   const handleSubmitRegister = (e) => {
-    e.preventDefault();
+    console.log(e);
   };
 
   const responseFacebook = async (res) => {
@@ -63,7 +62,11 @@ const AuthForm = ({ type }) => {
   return (
     <>
       <Form
-        onSubmit={type === "login" ? handleSubmitLogin : handleSubmitRegister}
+        onSubmit={
+          type === "login"
+            ? handleSubmit((data) => handleSubmitLogin(data))
+            : handleSubmit((data) => handleSubmitRegister(data))
+        }
         className={`${styles["auth-form"]} p-4 rounded`}
       >
         <Form.Group
@@ -74,9 +77,9 @@ const AuthForm = ({ type }) => {
         >
           {type === "register" ? (
             <Form.Control
-              type="email"
+              type="text"
               placeholder="Ad Soyad"
-              onChange={(e) => setEmail(e.target.value)}
+              {...register("username")}
               autoComplete="username"
             />
           ) : (
@@ -90,7 +93,7 @@ const AuthForm = ({ type }) => {
           <Form.Control
             type="email"
             placeholder="E-mail"
-            onChange={(e) => setEmail(e.target.value)}
+            {...register("email")}
             autoComplete="email"
           />
         </Form.Group>
@@ -104,7 +107,7 @@ const AuthForm = ({ type }) => {
             <Form.Control
               type={showPass ? "text" : "password"}
               placeholder="Sifre"
-              onChange={(e) => setPassword(e.target.value)}
+              {...register("password")}
               autoComplete="current-password"
             />
             <Form.Text className={styles["password-toggle"]}>
@@ -130,7 +133,7 @@ const AuthForm = ({ type }) => {
               <Form.Control
                 type={showRePass ? "text" : "password"}
                 placeholder="Şifrenizi Tekrarlayın"
-                onChange={(e) => setRepeatPassword(e.target.value)}
+                {...register("repeatPassword")}
                 autoComplete="current-password"
               />
               <Form.Text className={styles["password-toggle"]}>

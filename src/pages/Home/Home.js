@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { HomeHeader } from "../partials";
+import { HomeHeader, homeServiceCardItems } from "./partials";
 import {
   PageWrapper,
   FAQ,
@@ -10,12 +10,11 @@ import {
   BecomeDealerSection,
   AboutSection,
 } from "components";
-import { homeServiceCardItems } from "pages/partials";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import { animationActions } from "../../state/actions/serviceStep/index";
-import { testimonialActions } from "../../state/actions/testimonials";
-import { partnersActions } from "../../state/actions/partners";
+import { animationActions } from "state/actions/serviceStep/index";
+import { testimonialActions } from "state/actions/testimonials";
+import { partnersActions } from "state/actions/partners";
 import { formActions } from "state/actions/formOptions";
 
 const Home = () => {
@@ -25,20 +24,19 @@ const Home = () => {
   const { getPartnerList } = bindActionCreators(partnersActions, dispatch);
   const { getSmallFormOptions } = bindActionCreators(formActions, dispatch);
 
-  const processStepsProps = {
+  const processSteps = {
     title: "Process Steps",
     text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
     molestie leo est, in auctor lectus elementum congue. Nulla neque
     nisi, placerat nec dolor nec, semper sodales mauris.`,
   };
 
-  const servicesProps = {
+  const services = {
     headerTxt: "Hizmetler",
     introduction: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
             molestie leo est, in auctor lectus elementum congue. Nulla neque
             nisi, placerat nec dolor nec, semper sodales mauris.`,
     cardItems: homeServiceCardItems,
-    bgActive: true,
   };
 
   useEffect(() => {
@@ -51,8 +49,8 @@ const Home = () => {
   return (
     <PageWrapper>
       <HomeHeader />
-      <ProcessSteps {...processStepsProps} />
-      <Services {...servicesProps} />
+      <ProcessSteps>{processSteps}</ProcessSteps>
+      <Services bgActive={true}>{services}</Services>
       <FAQ />
       <Testimonials />
       <PartnersCarousel />

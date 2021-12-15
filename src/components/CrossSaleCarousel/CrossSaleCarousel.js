@@ -2,21 +2,17 @@ import {
   CrossSaleArrowNext,
   CrossSaleArrowPrev,
 } from "../CarouselArrows/CarouselArrows";
-import CrossSaleOptions from "./crossSaleOptions/crossSaleCarouselOptions";
+import { CrossSaleCarouselOptions } from "./CrossSaleOptions";
 import Slider from "react-slick";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 import { bookingActions } from "state/actions/booking";
 import { Title } from "components";
 
-const CrossSaleCarousel = ({ list }) => {
+const CrossSaleCarousel = (props) => {
   const dispatch = useDispatch();
   const { addCrossSale } = bindActionCreators(bookingActions, dispatch);
   const crossSalesCollection = [];
-
-  const titleProps = {
-    text: "Custamization options",
-  };
 
   const transition = (
     currentDiv,
@@ -89,7 +85,7 @@ const CrossSaleCarousel = ({ list }) => {
   return (
     <>
       <div className="text-center mx-auto mt-3" style={{ maxWidth: "693px" }}>
-        <Title {...titleProps} />
+        <Title>Custamization options</Title>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie
           leo est, in auctor lectus elementum congue. Nulla neque nisi, placerat
@@ -98,10 +94,12 @@ const CrossSaleCarousel = ({ list }) => {
         </p>
       </div>
       <div className="mt-5 mx-auto">
-        {list ? (
+        {props.children ? (
           <Slider {...settings}>
-            {list.map((e, i) => (
-              <CrossSaleOptions key={i} {...e} onClick={handleCrossSale} />
+            {props.children.map((e, i) => (
+              <CrossSaleCarouselOptions key={i} onClick={handleCrossSale}>
+                {e}
+              </CrossSaleCarouselOptions>
             ))}
           </Slider>
         ) : (

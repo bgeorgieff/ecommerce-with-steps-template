@@ -1,12 +1,12 @@
 import styles from "./bookingStepButtons.module.scss";
-import PropTypes from "prop-types";
+import clsx from "clsx";
 
 const BookingStepButtons = (props) => {
   return (
     <>
       <div className="mx-md-3 mx-1">
         <button
-          className={`${styles["btn-previous"]} main-blue mt-2 mt-sm-0`}
+          className={clsx(styles["btn-previous"], "main-blue mt-2 mt-sm-0")}
           type="button"
           onClick={(e) => props.handlePrevStep(e)}
         >
@@ -30,14 +30,6 @@ const BookingStepButtons = (props) => {
       </div>
     </>
   );
-};
-
-BookingStepButtons.propTypes = {
-  props: PropTypes.shape({
-    handleClick: PropTypes.func,
-    type: PropTypes.string,
-    handlePrevStep: PropTypes.func,
-  }),
 };
 
 export default BookingStepButtons;

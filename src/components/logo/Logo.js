@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { Image } from "react-bootstrap";
-import logoB from "../../assets/icons/Logo-blue.svg";
-import logoW from "../../assets/icons/Logo-white.svg";
+import logoB from "assets/icons/Logo-blue.svg";
+import logoW from "assets/icons/Logo-white.svg";
 import styles from "./logo.module.scss";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 
 const Logo = (props) => {
   return (
@@ -12,7 +13,7 @@ const Logo = (props) => {
       alt="Online Anahtar logo"
       style={{ textDecoration: "none" }}
     >
-      <div className={`${styles["logo"]} ms-md-1 mx-auto`}>
+      <div className={clsx(styles["logo"], "ms-md-1 mx-auto")}>
         <Image
           className="image-fluid me-1"
           src={props.color === "blue" ? logoB : logoW}

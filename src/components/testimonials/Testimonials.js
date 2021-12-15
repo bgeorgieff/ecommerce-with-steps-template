@@ -1,6 +1,6 @@
 import { Row, Col, Container } from "react-bootstrap";
 import { Title } from "components";
-import SingleTestimonial from "./singleTestimonial/singleTestimonial";
+import { SingleTestimonial } from "./SingleTestimonial";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
@@ -14,13 +14,6 @@ const Testimonials = () => {
   const testimonialArr = useSelector((state) => state.testimonialReducer);
   const [testimonials, setTestimonials] = useState([]);
   const mobileWidth = useWindowSize("lg");
-
-  const titleStyle = { textAlign: "center" };
-
-  const titleProps = {
-    text: "Testimonials",
-    style: titleStyle,
-  };
 
   const settings = {
     infinite: true,
@@ -65,13 +58,13 @@ const Testimonials = () => {
     <Container className="mt-5">
       <Row>
         <Col className="col-12">
-          <Title {...titleProps} />
+          <Title style={{ textAlign: "center" }}>Testimonials</Title>
         </Col>
         {mobileWidth ? (
           testimonials ? (
             <Slider {...settings}>
               {testimonials.map((e, i) => (
-                <SingleTestimonial key={i} {...e} />
+                <SingleTestimonial key={i}>{e}</SingleTestimonial>
               ))}
             </Slider>
           ) : (
@@ -80,7 +73,7 @@ const Testimonials = () => {
         ) : testimonials ? (
           testimonials.map((e, i) => (
             <Col key={i} className="col-4">
-              <SingleTestimonial {...e} />
+              <SingleTestimonial>{e}</SingleTestimonial>
             </Col>
           ))
         ) : (

@@ -2,24 +2,18 @@ import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Title } from "components";
 import styles from "./bookingStepFour.module.scss";
+import clsx from "clsx";
 
 const BookingStepFour = () => {
   const serviceDetails = useSelector(
     (state) => state.bookingReducer.bookingDetails
   );
 
-  const titleStyle = { fontSize: "64px" };
-
-  const titleProps = {
-    text: "THANK YOU",
-    style: titleStyle,
-  };
-
   return (
     <Row className="mb-5 mx-auto">
       <Col lg={6} className="d-flex flex-column justify-content-center">
         <div className="mx-5" style={{ width: "50%" }}>
-          <Title {...titleProps} />
+          <Title style={{ fontSize: "64px" }}>THANK YOU</Title>
         </div>
         <div className="mx-5 mt-3">
           <p>
@@ -33,13 +27,13 @@ const BookingStepFour = () => {
       </Col>
       <Col
         lg={6}
-        className={`${styles["booking-summary"]} d-flex flex-column justify-content-center align-items-center mx-auto p-5 mt-5 mt-lg-0`}
+        className={clsx(
+          styles["booking-summary"],
+          "d-flex flex-column justify-content-center align-items-center mx-auto p-5 mt-5 mt-lg-0"
+        )}
       >
         <div>
-          <Title
-            text={"Order Summary"}
-            style={{ color: "white", width: "50%" }}
-          />
+          <Title style={{ color: "white", width: "50%" }}>Order Summary</Title>
         </div>
         <Row className="mt-5">
           <Col className="col-6 ">

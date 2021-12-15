@@ -1,15 +1,13 @@
 import { Col, Form, Row } from "react-bootstrap";
-import { useState } from "react";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { bookingActions } from "../../state/actions/booking";
 import BookingStepButtons from "../BookingStepButtons/BookingStepButtons";
 import styles from "./bookingStepTwo.module.scss";
+import { useForm } from "react-hook-form";
 
 const BookingStepTwo = () => {
-  const [carBrand, setCarBrand] = useState("");
-  const [carModel, setCarModel] = useState("");
-  const [carYear, setCarYear] = useState("");
+  const { register } = useForm();
   const dispatch = useDispatch();
   const bookingDetails = useSelector(
     (state) => state.bookingReducer.bookingDetails
@@ -17,13 +15,12 @@ const BookingStepTwo = () => {
   const { nextStep, prevStep } = bindActionCreators(bookingActions, dispatch);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     try {
       nextStep({
         ...bookingDetails,
-        carBrand: carBrand,
-        carModel: carModel,
-        carYear: carYear,
+        carBrand: e.carBrand,
+        carModel: e.carModel,
+        carYear: e.carYear,
       });
     } catch (e) {
       console.log(e);
@@ -70,7 +67,7 @@ const BookingStepTwo = () => {
                 className={`${styles["booking-forms-down-arrow"]} ${styles["car-f-selects"]} main-blue mt-2 mt-md-0`}
                 aria-label="Default select"
                 defaultValue="Car Brand"
-                onChange={(e) => setCarBrand(e.target.value)}
+                {...register("carBrand")}
               >
                 <option disabled>Car Brand</option>
               </Form.Select>
@@ -80,7 +77,7 @@ const BookingStepTwo = () => {
                 className={`${styles["booking-forms-down-arrow"]} ${styles["car-f-selects"]} main-blue mt-2 mt-md-0`}
                 aria-label="Default select"
                 defaultValue="Model"
-                onChange={(e) => setCarModel(e.target.value)}
+                {...register("carModel")}
               >
                 <option disabled>Model</option>
               </Form.Select>
@@ -90,7 +87,7 @@ const BookingStepTwo = () => {
                 className={`${styles["booking-forms-down-arrow"]} ${styles["car-f-selects"]} main-blue mt-2 mt-md-0`}
                 aria-label="Default select"
                 defaultValue="Year"
-                onChange={(e) => setCarYear(e.target.value)}
+                {...register("carYear")}
               >
                 <option disabled>Year</option>
               </Form.Select>

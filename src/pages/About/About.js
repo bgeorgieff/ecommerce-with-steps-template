@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import { partnersActions } from "../../state/actions/partners";
+import { partnersActions } from "state/actions/partners";
 import { useEffect } from "react";
 import {
   PageWrapper,
@@ -10,7 +10,7 @@ import {
   Services,
   CEOInfo,
 } from "components";
-import { aboutCardCollection } from "pages/partials";
+import { aboutPageServiceItems } from "./partials";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -20,18 +20,17 @@ const About = () => {
     getPartnerList();
   }, [getPartnerList]);
 
-  const serviceProps = {
-    cardItems: aboutCardCollection,
+  const services = {
+    cardItems: aboutPageServiceItems,
     headerTxt: "Our expertise",
     introduction:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie leo est, in auctor lectus elementum congue. Nulla neque nisi, placerat nec dolor nec, semper sodales mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    bgActive: true,
   };
 
   return (
     <PageWrapper>
       <AboutOurCompany />
-      <Services {...serviceProps} />
+      <Services bgActive={true}>{services}</Services>
       <CEOInfo />
       <PartnersCarousel />
       <BecomeDealerSection />

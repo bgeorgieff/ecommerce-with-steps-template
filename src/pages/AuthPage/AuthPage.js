@@ -1,6 +1,6 @@
 import { Col, Container, Row, Image } from "react-bootstrap";
 import { PageWrapper, AuthSection } from "components";
-import loginImage from "../../assets/images/car-salesperson-giving-keys-to-a-client-close-up-QUYLS89-1.png";
+import loginImage from "assets/images/car-salesperson-giving-keys-to-a-client-close-up-QUYLS89-1.png";
 
 const AuthPage = () => {
   return (

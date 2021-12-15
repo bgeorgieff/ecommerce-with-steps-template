@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { bindActionCreators } from "redux";
 import { PageWrapper, ProcessSteps, Services } from "components";
-import { animationActions } from "../../state/actions/serviceStep";
-import { NEW_ORDER } from "../../state/constants/actionTypes";
-import { homeServiceCardItems } from "pages/partials";
+import { animationActions } from "state/actions/serviceStep";
+import { NEW_ORDER } from "state/constants/actionTypes";
+import { homeServiceCardItems } from "../Home/partials/";
 
 const ServicePage = () => {
   const dispatch = useDispatch();
@@ -19,9 +19,15 @@ const ServicePage = () => {
     (state) => state.bookingReducer.bookingDetails?.serviceName
   );
 
-  const serviceItemsProps = {
+  const processSteps = {
+    title: "Process Steps",
+    text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+molestie leo est, in auctor lectus elementum congue. Nulla neque
+nisi, placerat nec dolor nec, semper sodales mauris.`,
+  };
+
+  const services = {
     cardItems: homeServiceCardItems,
-    bgActive: false,
   };
 
   useEffect(() => {
@@ -45,16 +51,11 @@ const ServicePage = () => {
       <Container fluid className="px-0">
         <Row className="gx-0">
           <Col style={{ overflow: "hidden" }}>
-            <ProcessSteps
-              title={"Process Steps"}
-              text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-      molestie leo est, in auctor lectus elementum congue. Nulla neque
-      nisi, placerat nec dolor nec, semper sodales mauris.`}
-            />
+            <ProcessSteps>{processSteps}</ProcessSteps>
           </Col>
         </Row>
       </Container>
-      <Services {...serviceItemsProps} />
+      <Services bgActive={false}>{services}</Services>
     </PageWrapper>
   );
 };

@@ -1,21 +1,16 @@
-import { useEffect, useState } from "react";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Form, Row } from "react-bootstrap";
-import { bookingActions } from "../../state/actions/booking";
+import { bookingActions } from "state/actions/booking";
 import DeliveryDetails from "../DeliveryDetails/DeliveryDetails";
 import LocationForm from "../LocationForm/LocationForm";
 import BookingStepButtons from "../BookingStepButtons/BookingStepButtons";
 import styles from "./bookingStepOne.module.scss";
+import { useForm } from "react-hook-form";
 
 const BookingStepOne = () => {
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [addressDetails, setAddressDetails] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  const { register, handleSubmit } = useForm();
+
   const dispatch = useDispatch();
   const bookingDetails = useSelector(
     (state) => state.bookingReducer.bookingDetails
@@ -26,21 +21,20 @@ const BookingStepOne = () => {
   const clientDetails = useSelector((state) => state.authReducer?.authData);
   const { nextStep, prevStep } = bindActionCreators(bookingActions, dispatch);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleStepOneForm = async (e) => {
     try {
       nextStep({
         serviceName: serviceName,
         clientDetails: {
           name: clientDetails?.result.name || "",
           token: clientDetails?.result.token || "",
-          address: address || "",
-          city: city || "",
-          firstName: firstName || "",
-          lastName: lastName || "",
-          phone: phone || "",
-          email: email || "",
-          deliveryDetails: addressDetails || "",
+          address: e.address || "",
+          city: e.city || "",
+          firstName: e.firstName || "",
+          lastName: e.lastName || "",
+          phone: e.phone || "",
+          email: e.email || "",
+          deliveryDetails: e.addressDetails || "",
         },
         bookingStep: bookingDetails?.bookingStep,
       });
@@ -61,31 +55,12 @@ const BookingStepOne = () => {
     }
   };
 
-  useEffect(() => {
-    setEmail(bookingDetails.clientDetails?.email);
-    setPhone(bookingDetails.clientDetails?.phone);
-    setFirstName(bookingDetails.clientDetails?.firstName);
-    setLastName(bookingDetails.clientDetails?.lastName);
-    setAddressDetails(bookingDetails.clientDetails?.deliveryDetails);
-  }, [bookingDetails]);
-
-  const locationFormProps = {
-    address: setAddress,
-    city: setCity,
-    //TODO additional prop with actual location options
-  };
-
-  const deliveryDetailsProps = {
-    setEmail: setEmail,
-    setFirstName: setFirstName,
-    setLastName: setLastName,
-    setPhone: setPhone,
-    setAddressDetails: setAddressDetails,
-    emailVal: email,
-    fNameVal: firstName,
-    lNameVal: lastName,
-    phoneVal: phone,
-    addressVal: addressDetails,
+  const deliveryDetails = {
+    emailVal: bookingDetails.clientDetails?.email,
+    fNameVal: bookingDetails.clientDetails?.firstName,
+    lNameVal: bookingDetails.clientDetails?.lastName,
+    phoneVal: bookingDetails.clientDetails?.phone,
+    addressVal: bookingDetails.clientDetails?.deliveryDetails,
   };
 
   const bookingStepButtonsProps = {
@@ -95,18 +70,29 @@ const BookingStepOne = () => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit((data) => handleStepOneForm(data))}>
         <Row className="mb-5 mt-3">
           <Col
             lg={12}
             className={`${styles["location-bg"]} mt-2 mb-5 my-md-5 d-flex justify-content-center align-items-center`}
           >
-            <LocationForm {...locationFormProps} />
+            <LocationForm
+              setAddress={{ ...register("address") }}
+              setCity={{ ...register("city") }}
+            />
           </Col>
         </Row>
         <Row className="my-5">
           <Col className="mt-5">
-            <DeliveryDetails {...deliveryDetailsProps} />
+            <DeliveryDetails
+              setEmail={{ ...register("email") }}
+              setFirstName={{ ...register("firstName") }}
+              setLastName={{ ...register("lastName") }}
+              setPhone={{ ...register("phone") }}
+              setAddressDetails={{ ...register("addressDetails") }}
+            >
+              {deliveryDetails}
+            </DeliveryDetails>
           </Col>
         </Row>
         <div className="d-flex justify-content-center mb-5">

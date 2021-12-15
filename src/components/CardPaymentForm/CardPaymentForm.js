@@ -1,10 +1,9 @@
 import { Row, Col, Form } from "react-bootstrap";
-import cardSymbol from "../../assets/icons/card-symbol.svg";
+import cardSymbol from "assets/icons/card-symbol.svg";
 import styles from "./cardPaymentForm.module.scss";
-import PropTypes from "prop-types";
 
-import cardsListOne from "../../assets/icons/card-methods-1.svg";
-import cardsListTwo from "../../assets/icons/card-methods-2.svg";
+import cardsListOne from "assets/icons/card-methods-1.svg";
+import cardsListTwo from "assets/icons/card-methods-2.svg";
 
 const CardPaymentForm = (props) => {
   return (
@@ -44,7 +43,7 @@ const CardPaymentForm = (props) => {
                     type="text"
                     placeholder="Card Number"
                     className={styles.input}
-                    onChange={(e) => props.setCardNumber(e.target.value)}
+                    {...props.setCardNumber}
                   />
                 </Form.Group>
               </Row>
@@ -63,7 +62,7 @@ const CardPaymentForm = (props) => {
                     type="text"
                     placeholder="MM/YY"
                     className={`${styles.input} ms-lg-2`}
-                    onChange={(e) => props.setExpiryDate(e.target.value)}
+                    {...props.setExpiryDate}
                   />
                 </Form.Group>
                 <Form.Group
@@ -81,7 +80,7 @@ const CardPaymentForm = (props) => {
                     type="text"
                     placeholder="XXX"
                     className={`${styles.input} ms-lg-2`}
-                    onChange={(e) => props.setCSV(e.target.value)}
+                    {...props.setCSV}
                   />
                 </Form.Group>
               </Row>
@@ -112,14 +111,6 @@ const CardPaymentForm = (props) => {
       </div>
     </>
   );
-};
-
-CardPaymentForm.propTypes = {
-  props: PropTypes.exact({
-    setCSV: PropTypes.func,
-    setCardNumber: PropTypes.func,
-    setExpiryDate: PropTypes.func,
-  }),
 };
 
 export default CardPaymentForm;
