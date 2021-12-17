@@ -1,14 +1,13 @@
 import { Form, Image, Row, Col } from "react-bootstrap";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import styles from "./deliveryDetails.module.scss";
-
+// import { FACEBOOK_ID } from "constants";
 import portrait from "assets/icons/portrait-booking-form.svg";
 import facebookLoginImg from "assets/icons/facebook-login.svg";
 import locationcity from "assets/icons/location_city.svg";
 import { useWindowSize } from "hooks";
 
-const facebookID = process.env.REACT_APP_FACEBOOK_ID;
-
+// console.log(FACEBOOK_ID);
 const DeliveryDetails = (props) => {
   const mobileWidth = useWindowSize("lg");
 
@@ -23,7 +22,7 @@ const DeliveryDetails = (props) => {
           <div className="d-flex justify-content-between mx-5 my-4">
             <img src={portrait} alt={portrait} />
             <FacebookLogin
-              appId={facebookID}
+              // appId={FACEBOOK_ID}
               autoLoad={false}
               fields="name, email, picture"
               callback={responseFacebook}

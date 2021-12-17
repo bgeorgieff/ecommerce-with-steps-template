@@ -1,12 +1,5 @@
 import axios from "axios";
-import {
-  testimonialsUrl,
-  createUserUrl,
-  loginUserUrl,
-  crossSalesListUrl,
-  smallFormOptionsUrl,
-} from "./url";
-
+import { CREATE_USER_URL, LOGIN_USER_URL } from "constants/constants";
 import fakeTestimonials from "utils/fakeTestimonials";
 import fakePartnerList from "utils/fakePartnerList";
 import { fakeSmallFormOptions } from "utils/fakeSmallFormOptions";
@@ -33,12 +26,12 @@ export const fetchCrossSales = () => {
 };
 
 export const createUser = ({ username, email, password }) => {
-  const user = axios.post(createUserUrl, { username, email, password });
+  const user = axios.post(CREATE_USER_URL, { username, email, password });
   return user;
 };
 
 export const loginUser = (username, email, password) => {
-  const user = axios.get(loginUserUrl, { username, email, password });
+  const user = axios.get(LOGIN_USER_URL, { username, email, password });
   return user;
 };
 

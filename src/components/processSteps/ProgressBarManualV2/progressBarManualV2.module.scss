@@ -1,0 +1,80 @@
+.mainLine {
+  width: 100%;
+  background-color: #b2b3b4;
+  height: 3px;
+  position: relative;
+}
+
+.secondaryLine {
+  position: absolute;
+  left: 0;
+  background-color: #36a341;
+  height: 3px;
+  content: "";
+  transition: 3s ease;
+}
+
+.iconGrey {
+  fill: #b2b3b4;
+  transition: 3s ease;
+  transform: translateY(-50%);
+}
+
+.iconBlue {
+  fill: #2d69b3;
+  transform: translateY(-50%);
+}
+
+.iconGreen {
+  transform: translateY(-50%);
+  fill: #36a341;
+}
+
+.dotsGrey {
+  color: white !important;
+  width: 25px;
+  height: 25px;
+  background-color: #b2b3b4;
+  border-radius: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: 3s ease;
+}
+
+.dotsGreen {
+  color: white !important;
+  background-color: #36a341;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.dotsBlue {
+  color: white !important;
+  background-color: #2d69b3;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.textGrey {
+  color: #b2b3b4;
+  text-align: center;
+  font-weight: 700;
+}
+
+.textBlue {
+  color: #2d69b3;
+  text-align: center;
+  font-weight: 700;
+}
+
+.textGreen {
+  color: #36a341;
+  text-align: center;
+  font-weight: 700;
+}

@@ -4,9 +4,10 @@ import { Row, Col, Container } from "react-bootstrap";
 import { Title } from "components";
 import { bookingSteps } from "./steps";
 import { useSelector } from "react-redux";
-import { ProgressBarManual } from "./ProgressBarManual";
+// import { ProgressBarManual } from "./ProgressBarManual";
 import { ProgressBar } from "./ProgressBar";
 import PropTypes from "prop-types";
+import ProgressBarManualV2 from "./ProgressBarManualV2/ProgressBarManualV2";
 
 const ProcessSteps = (props) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +40,7 @@ const ProcessSteps = (props) => {
             ""
           )}
           <div
-            style={{ maxWidth: "583px" }}
+            style={{ maxWidth: "600px" }}
             className={
               autoAnimateState
                 ? "d-block mx-auto mt-4 mb-8 gx-0"
@@ -53,11 +54,16 @@ const ProcessSteps = (props) => {
             ) : (
               ""
             )}
-            <div ref={visibilityRef} className="mt-6">
+            <div ref={visibilityRef} className="mt-3">
               {autoAnimateState ? (
-                <ProgressBar visible={isVisible}>{bookingSteps}</ProgressBar>
+                <div className="mt-6">
+                  <ProgressBar visible={isVisible}>{bookingSteps}</ProgressBar>
+                </div>
               ) : (
-                <ProgressBarManual>{bookingSteps}</ProgressBarManual>
+                <ProgressBarManualV2 />
+                // <div className="mt-6">
+                //   <ProgressBarManual>{bookingSteps}</ProgressBarManual>
+                // </div>
               )}
             </div>
           </div>

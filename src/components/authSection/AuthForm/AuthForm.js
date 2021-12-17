@@ -6,12 +6,10 @@ import { useDispatch } from "react-redux";
 import { Form, Image } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import styles from "../authSection.module.scss";
-
+import { FACEBOOK_ID, GOOGLE_OAUTH2_ID } from "constants/constants";
+// import { GOOGLE_OAUTH2_ID } from "constants";
 import facebookLoginImg from "assets/icons/facebook-login.svg";
 import googleLoginImg from "assets/icons/google-login.svg";
-
-const googleOAUTH2ID = process.env.REACT_APP_GOOGLE_ID;
-const facebookID = process.env.REACT_APP_FACEBOOK_ID;
 
 const AuthForm = ({ type }) => {
   const { register, handleSubmit } = useForm();
@@ -162,7 +160,7 @@ const AuthForm = ({ type }) => {
         <div className="d-flex justify-content-between align-items-center my-5">
           <div className="mx-2">
             <FacebookLogin
-              appId={facebookID}
+              appId={FACEBOOK_ID}
               autoLoad={false}
               fields="name, email, picture"
               callback={responseFacebook}
@@ -178,7 +176,7 @@ const AuthForm = ({ type }) => {
           </div>
           <div className="mx-2">
             <GoogleLogin
-              clientId={googleOAUTH2ID}
+              clientId={GOOGLE_OAUTH2_ID}
               render={(renderProps) => (
                 <button
                   onClick={renderProps.onClick}

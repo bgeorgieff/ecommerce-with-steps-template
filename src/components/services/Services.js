@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 
 const Services = (props) => {
-  console.log(props);
   return (
     <Container fluid className="gx-0">
       <Row className="gx-0">
