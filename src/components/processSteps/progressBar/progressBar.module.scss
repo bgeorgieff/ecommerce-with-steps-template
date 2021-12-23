@@ -1,0 +1,105 @@
+.container {
+  @media screen and(max-width: 992px) {
+    transform: rotate(90deg) translateY(50%);
+    margin-top: 12rem;
+    margin-bottom: 15rem;
+  }
+  @media screen and(max-width: 566px) {
+    margin-top: 10rem;
+    margin-bottom: 15rem;
+  }
+  @media screen and(max-width: 456px) {
+    margin-top: 8rem;
+    margin-bottom: 12rem;
+  }
+  @media screen and(max-width: 391px) {
+    margin-top: 6rem;
+    margin-bottom: 10rem;
+  }
+  .icons {
+    width: 20%;
+    transform: translateY(-45%);
+    @media screen and(max-width: 992px) {
+      transform: rotate(270deg) translateX(20%);
+    }
+  }
+
+  .dots {
+    color: white;
+    height: 25px;
+    width: 25px;
+    background-color: #2d69b3;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    @media screen and(max-width: 992px) {
+      transform: rotate(270deg) translateX(50%);
+    }
+  }
+
+  .texts {
+    font-weight: 700;
+    color: #2d69b3;
+    transition: color 0.3s ease;
+    @media screen and(max-width: 992px) {
+      transform: rotate(270deg) translateX(150%);
+      text-align: left !important;
+    }
+    @media screen and(max-width: 992px) {
+      transform: rotate(270deg) translateX(160%);
+      text-align: left !important;
+    }
+    @media screen and(max-width: 480px) {
+      transform: rotate(270deg) translateX(170%);
+      text-align: left !important;
+    }
+    @media screen and(max-width: 443px) {
+      transform: rotate(270deg) translateX(190%);
+      text-align: left !important;
+    }
+    @media screen and(max-width: 423px) {
+      transform: rotate(270deg) translateX(210%);
+      text-align: left !important;
+    }
+  }
+
+  .progressLine {
+    width: 100%;
+    height: 3px;
+    background-color: #2d69b3;
+    position: relative;
+    .progressLineInner {
+      position: absolute;
+      content: "";
+      height: 3px;
+      background-color: #36a341;
+    }
+  }
+  :global(.line-width-enter) {
+    width: 0;
+  }
+
+  :global(.line-width-enter-done) {
+    width: 100%;
+    transition: width 5s ease;
+  }
+
+  :global(.dots-color-enter-done) {
+    background-color: #36a341;
+    transition: background-color 0.4s ease;
+  }
+
+  :global(.icon-color-enter-done) {
+    filter: hue-rotate(260deg) saturate(2.5) !important;
+  }
+
+  :global(.texts-color-enter-done) {
+    color: #36a341;
+  }
+}
+
+.staticsContainer {
+  width: 84%;
+  @media screen and(max-width: 992px) {
+    width: 86% !important;
+  }
+}

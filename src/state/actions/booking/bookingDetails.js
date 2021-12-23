@@ -2,10 +2,22 @@ import {
   NEXT_STEP,
   PREVIOUS_STEP,
   ADD_CROSSSALE,
+  REMOVE_CROSSSALE,
   FETCH_CROSSALES,
+  NEW_CROSS_SALE_ARR,
+  NEW_ORDER,
 } from "../../constants/actionTypes";
 import { push } from "connected-react-router";
 import * as api from "api";
+
+export const newOrder = (details) => {
+  return (dispatch) => {
+    dispatch({
+      type: NEW_ORDER,
+      data: details,
+    });
+  };
+};
 
 export const nextStep = (details) => async (dispatch) => {
   // TODO ON STEP 2 FETCH CAR MAKE AND MODEL AND FILL IN KEYS FOR STEP 3
@@ -63,6 +75,24 @@ export const addCrossSale = (details) => {
   return (dispatch) => {
     dispatch({
       type: ADD_CROSSSALE,
+      data: details,
+    });
+  };
+};
+
+export const removeCrossSale = (details) => {
+  return (dispatch) => {
+    dispatch({
+      type: REMOVE_CROSSSALE,
+      data: details,
+    });
+  };
+};
+
+export const newCrossSaleArr = (details) => {
+  return (dispatch) => {
+    dispatch({
+      type: NEW_CROSS_SALE_ARR,
       data: details,
     });
   };

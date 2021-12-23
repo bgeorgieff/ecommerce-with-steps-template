@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Image } from "react-bootstrap";
 import logoB from "assets/icons/Logo-blue.svg";
 import logoW from "assets/icons/Logo-white.svg";
@@ -8,11 +8,7 @@ import clsx from "clsx";
 
 const Logo = (props) => {
   return (
-    <NavLink
-      to="/"
-      alt="Online Anahtar logo"
-      style={{ textDecoration: "none" }}
-    >
+    <Link to="/" alt="Online Anahtar logo" style={{ textDecoration: "none" }}>
       <div className={clsx(styles["logo"], "ms-md-1 mx-auto")}>
         <Image
           className="image-fluid me-1"
@@ -21,7 +17,7 @@ const Logo = (props) => {
           style={props.style}
         />
       </div>
-    </NavLink>
+    </Link>
   );
 };
 

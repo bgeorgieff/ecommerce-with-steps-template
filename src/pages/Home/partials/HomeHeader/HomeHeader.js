@@ -1,4 +1,4 @@
-import { SmallForm } from "components";
+import SmallForm from "../SmallForm";
 import styles from "./homeHeader.module.scss";
 
 const HomeHeader = () => {

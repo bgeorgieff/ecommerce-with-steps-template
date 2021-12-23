@@ -1,5 +1,5 @@
 import { Col, Row, Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import facebookIcon from "assets/icons/fb-nav-img-white.svg";
 import instaIcon from "assets/icons/insta-nav-img-white.svg";
@@ -43,7 +43,7 @@ const Footer = () => {
                   "mx-auto d-flex flex-column"
                 )}
               >
-                <NavLink
+                <Link
                   to="/"
                   className={clsx(
                     styles["footer-nav"],
@@ -51,8 +51,8 @@ const Footer = () => {
                   )}
                 >
                   Home
-                </NavLink>
-                <NavLink
+                </Link>
+                <Link
                   to="/service-page"
                   className={clsx(
                     styles["footer-nav"],
@@ -60,8 +60,8 @@ const Footer = () => {
                   )}
                 >
                   Services
-                </NavLink>
-                <NavLink
+                </Link>
+                <Link
                   to="/franchising"
                   className={clsx(
                     styles["footer-nav"],
@@ -69,8 +69,8 @@ const Footer = () => {
                   )}
                 >
                   Franchising
-                </NavLink>
-                <NavLink
+                </Link>
+                <Link
                   to="/about-us"
                   className={clsx(
                     styles["footer-nav"],
@@ -78,8 +78,8 @@ const Footer = () => {
                   )}
                 >
                   About
-                </NavLink>
-                <NavLink
+                </Link>
+                <Link
                   to="/contact"
                   className={clsx(
                     styles["footer-nav"],
@@ -87,7 +87,7 @@ const Footer = () => {
                   )}
                 >
                   Contact
-                </NavLink>
+                </Link>
               </div>
             </Col>
             <Col md={2} className="mx-auto gx-0 order-1 order-md-0">
@@ -97,7 +97,7 @@ const Footer = () => {
                   "mx-auto d-flex flex-column"
                 )}
               >
-                <NavLink
+                <Link
                   to="/privacy-policy"
                   className={clsx(
                     styles["footer-nav"],
@@ -105,8 +105,8 @@ const Footer = () => {
                   )}
                 >
                   Privacy Policy
-                </NavLink>
-                <NavLink
+                </Link>
+                <Link
                   to="/terms-and-conditions"
                   className={clsx(
                     styles["footer-nav"],
@@ -114,7 +114,7 @@ const Footer = () => {
                   )}
                 >
                   Terms Of Use
-                </NavLink>
+                </Link>
               </div>
             </Col>
             <Col md={2} className="mx-auto gx-0 order-0 order-md-1">

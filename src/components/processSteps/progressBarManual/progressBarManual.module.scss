@@ -1,0 +1,151 @@
+.container {
+  @media screen and(max-width: 576px) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    transform: scale(1.8) translateX(38%);
+    transition: transform 0.5s ease;
+  }
+  .textContainer {
+    @media screen and(max-width: 576px) {
+      transform: translateX(-6%);
+    }
+    .text {
+      @media screen and(max-width: 576px) {
+        font-size: 7px;
+        transform: scale(1.8) translateX(30%);
+      }
+    }
+  }
+}
+
+.initial {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  transform: scale(1.8) translateX(38%);
+}
+
+.step-one {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  transform: scale(1.8) translateX(18%);
+}
+.step-two {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  transform: scale(1.8) translateX(-2%);
+}
+.step-three {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  transform: scale(1.8) translateX(-20%);
+}
+.step-four {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  transform: scale(1.8) translateX(-40%);
+}
+
+.mainLine {
+  width: 100%;
+  background-color: #b2b3b4;
+  height: 3px;
+  position: relative;
+}
+
+.secondaryLine {
+  position: absolute;
+  left: 0;
+  background-color: #36a341;
+  height: 3px;
+  content: "";
+  transition: 3s ease;
+}
+
+.iconGrey {
+  filter: grayscale(100) opacity(0.6);
+  transform: translateY(-50%);
+}
+
+.iconGreen {
+  filter: hue-rotate(260deg) saturate(2.5) !important;
+  transform: translateY(-50%);
+}
+
+.dotsGrey {
+  color: white !important;
+  width: 25px;
+  height: 25px;
+  background-color: #b2b3b4;
+  border-radius: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: 2s ease;
+}
+
+.dotsGreen {
+  color: white !important;
+  background-color: #36a341 !important;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.textGrey {
+  color: #b2b3b4;
+  text-align: center;
+  font-weight: 700;
+}
+
+.textGreen {
+  color: #36a341 !important;
+  text-align: center;
+  font-weight: 700;
+}
+
+:global(.text-grey-enter) {
+  color: grey;
+  text-align: center;
+  font-weight: 700;
+}
+
+:global(.text-grey-enter-active) {
+  color: grey;
+}
+
+:global(.text-grey-enter-done) {
+  color: #2d69b3;
+  font-weight: 700;
+  transition: color 2s ease;
+}
+
+:global(.dots-grey-enter) {
+  background-color: grey;
+  text-align: center;
+  font-weight: 700;
+}
+
+:global(.dots-grey-enter-active) {
+  background-color: grey;
+}
+
+:global(.dots-grey-enter-done) {
+  background-color: #2d69b3;
+  transition: background-color 2s ease;
+}
+
+:global(.icon-grey-enter) {
+  fill: grey;
+  text-align: center;
+  font-weight: 700;
+}
+
+:global(.icon-grey-enter-active) {
+  fill: grey;
+}
+
+:global(.icon-grey-enter-done) {
+  filter: none;
+  transition: filter 2s ease;
+}

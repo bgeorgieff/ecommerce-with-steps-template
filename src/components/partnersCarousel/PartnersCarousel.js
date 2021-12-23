@@ -3,10 +3,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { Title } from "components";
 import { CarouselItem } from "./CarouselItem";
-import {
-  CarouselArrowNext,
-  CarouselArrowPrev,
-} from "../CarouselArrows/CarouselArrows";
+import { CarouselArrowNext, CarouselArrowPrev } from "../CarouselArrows";
 import { useSelector } from "react-redux";
 import styles from "./partnersCarousel.module.scss";
 

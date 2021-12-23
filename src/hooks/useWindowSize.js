@@ -7,7 +7,6 @@ const breakPoints = {
 };
 
 const useWindowSize = (type) => {
-  const [width, setWidth] = useState(window.innerWidth);
   const [mobileWidth, setMobileWidth] = useState(false);
 
   useEffect(() => {
@@ -15,18 +14,15 @@ const useWindowSize = (type) => {
       console.error("There is no such option");
     }
 
-    if (breakPoints[type] > width) {
-      setMobileWidth(true);
-    } else {
-      setMobileWidth(false);
-    }
-
     window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
+      if (breakPoints[type] > window.innerWidth) {
+        setMobileWidth(true);
+      } else {
+        setMobileWidth(false);
+      }
     });
-
     return () => window.removeEventListener("resize", null);
-  }, [width, mobileWidth, type]);
+  }, [mobileWidth, type]);
 
   return mobileWidth;
 };

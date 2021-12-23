@@ -1,0 +1,67 @@
+.location-form-container {
+  width: 445px;
+  height: 331px;
+  background-color: #2d69b3;
+  transform: translateX(-55%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  &::after {
+    position: absolute;
+    background-image: url("../../../../../assets/icons/location-medium.svg");
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 253px;
+    width: 173px;
+    content: "";
+    top: 10%;
+    left: -20%;
+    z-index: -1;
+    @media screen and(max-width: 992px) {
+      display: none;
+    }
+  }
+  @media screen and(max-width: 992px) {
+    transform: translate(0, 160px);
+  }
+  .location-form-text-container {
+    p {
+      color: white;
+    }
+  }
+  .location-placeholder {
+    color: #2d69b3 !important;
+    border: 1px solid #2d69b3;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-image: url("../../../../../assets/icons/down-arrow-step-2.svg") !important;
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #2d69b3 !important;
+    }
+    &::-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #2d69b3 !important;
+    }
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #2d69b3 !important;
+    }
+    @media screen and(max-width: 992px) {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.find-my-location {
+  color: white;
+  a {
+    color: inherit;
+  }
+}
+
+:global(.booking-forms-down-arrow) {
+  background-image: url("../../../../../assets/icons/down-arrow-step-2.svg") !important;
+}

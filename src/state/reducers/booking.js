@@ -43,8 +43,13 @@ const bookingReducer = (state = initialState, action) => {
       };
     case NEW_ORDER:
       sessionStorage.clear();
+      sessionStorage.setItem(
+        "bookingDetails",
+        JSON.stringify({
+          ...action?.data,
+        })
+      );
       return {
-        ...state,
         bookingDetails: {
           bookingStep: action?.data.bookingStep || 0,
         },

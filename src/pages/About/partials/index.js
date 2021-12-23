@@ -1,1 +1,2 @@
-export { default as aboutPageServiceItems } from "./aboutPageServiceItems";
+export { default as AboutOurCompany } from "./AboutOurCompany";
+export { default as CEOInfo } from "./CEOInfo";

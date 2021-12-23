@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "../headerNav.module.scss";
 import clsx from "clsx";
 
@@ -17,7 +17,7 @@ const NavLinks = ({ children }) => {
         </button>
       </div>
       {children.map((e, i) => (
-        <NavLink
+        <Link
           key={i}
           className={clsx(
             styles["navigation-links"],
@@ -26,7 +26,7 @@ const NavLinks = ({ children }) => {
           to={e.link}
         >
           {e.option}
-        </NavLink>
+        </Link>
       ))}
     </>
   );

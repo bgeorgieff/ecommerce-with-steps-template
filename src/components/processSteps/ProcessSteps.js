@@ -2,16 +2,13 @@ import { useState } from "react";
 import { useInViewEffect } from "react-hook-inview";
 import { Row, Col, Container } from "react-bootstrap";
 import { Title } from "components";
-import { bookingSteps } from "./steps";
-import { useSelector } from "react-redux";
-// import { ProgressBarManual } from "./ProgressBarManual";
-import { ProgressBar } from "./ProgressBar";
 import PropTypes from "prop-types";
-import ProgressBarManualV2 from "./ProgressBarManualV2/ProgressBarManualV2";
+import ProgressBarManual from "./ProgressBarManual/ProgressBarManual";
+import ProgressBar from "./ProgressBar/ProgressBar";
 
 const ProcessSteps = (props) => {
+  const { text, title, autoAnimate } = props;
   const [isVisible, setIsVisible] = useState(false);
-  const autoAnimateState = useSelector((state) => state.autoAnimateReducer);
 
   const visibilityRef = useInViewEffect(
     ([entry], observer) => {
@@ -26,44 +23,29 @@ const ProcessSteps = (props) => {
   return (
     <Container
       fluid
-      className={
-        autoAnimateState ? "fluid-keys-container gx-0 pt-6" : "gx-0 pt-6"
-      }
+      className={autoAnimate ? "fluid-keys-container gx-0 pt-6" : "gx-0 pt-6"}
     >
       <Row className="gx-0">
         <Col lg={12} sm={12} style={{ zIndex: "1" }}>
-          {props.children?.title ? (
-            <Title style={{ textAlign: "center" }}>
-              {props.children?.title}
-            </Title>
-          ) : (
-            ""
-          )}
+          {title ? <Title style={{ textAlign: "center" }}>{title}</Title> : ""}
           <div
             style={{ maxWidth: "600px" }}
             className={
-              autoAnimateState
+              autoAnimate
                 ? "d-block mx-auto mt-4 mb-8 gx-0"
                 : "d-block mx-auto my-5 gx-0"
             }
           >
-            {props.children?.text ? (
-              <p className="text-center pb-5 main-font px-2">
-                {props.children?.text}
-              </p>
+            {text ? (
+              <p className="text-center pb-5 main-font px-2">{text}</p>
             ) : (
               ""
             )}
             <div ref={visibilityRef} className="mt-3">
-              {autoAnimateState ? (
-                <div className="mt-6">
-                  <ProgressBar visible={isVisible}>{bookingSteps}</ProgressBar>
-                </div>
+              {autoAnimate ? (
+                <ProgressBar inView={isVisible} />
               ) : (
-                <ProgressBarManualV2 />
-                // <div className="mt-6">
-                //   <ProgressBarManual>{bookingSteps}</ProgressBarManual>
-                // </div>
+                <ProgressBarManual />
               )}
             </div>
           </div>

@@ -1,0 +1,152 @@
+.cross-sale-carousel-container {
+  background: #ffffff;
+  box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.15);
+  border-radius: 18px;
+  width: 350px;
+  min-height: 446px;
+  @media screen and(max-width: 1200px) {
+    width: 90%;
+  }
+  .cross-sale-price {
+    font-family: "Baloo Chettan 2";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 95.5%;
+    color: #a5a5a5;
+  }
+  .cross-sale-btn {
+    background-color: #2d69b3;
+    color: white;
+    font-weight: 900;
+    line-height: 129%;
+    width: 160px;
+    height: 36.11px;
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    @media screen and (max-width: 768px) {
+      width: 100% !important;
+    }
+  }
+  .btnGreen {
+    background-color: #36a341;
+  }
+}
+
+.greenBorder {
+  border: 2px solid #36a341;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.15);
+  border-radius: 18px;
+  transition: 0.3s ease-in-out;
+}
+
+.tickContainer {
+  opacity: 0;
+  display: block;
+  float: right;
+  transition: 0.3s ease;
+}
+
+.tickContainerActive {
+  display: block;
+  opacity: 100%;
+  float: right;
+  @media screen and(max-width: 768px) {
+    transform: translateY(-190px);
+  }
+}
+
+:global(.cross-sale-carousel-dots) {
+  display: flex !important;
+  justify-content: center;
+  vertical-align: middle;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+  width: 70px;
+  text-align: center;
+  margin-top: 4.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  li {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 3px;
+    padding: 0;
+    button {
+      background: white;
+      border: 1px solid #2d69b3;
+      color: transparent;
+      cursor: pointer;
+      display: block;
+      width: 13.55px;
+      height: 13.55px;
+      border-radius: 50%;
+      -moz-border-radius: 50%;
+      -webkit-border-radis: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+  }
+  :global(li.slick-active button) {
+    width: 13.55px;
+    height: 13.55px;
+    left: 685px;
+    top: 1393px;
+    background: #2d69b3;
+    border-radius: 50%;
+  }
+}
+
+:global(.arrow-next) {
+  display: block;
+  background-image: url("../../../../../assets/icons/rightArrowBookingStep.svg");
+  background-repeat: no-repeat;
+  background-size: 21px auto;
+  background-position: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  width: 38.09px;
+  height: 39.09px;
+  position: absolute;
+  bottom: 0;
+  left: 51%;
+  margin-bottom: 2rem;
+  &:hover {
+    cursor: pointer;
+  }
+  @media screen and(max-width: 1200px) {
+    left: 53%;
+  }
+  @media screen and (max-width: 800px) {
+    left: 55%;
+  }
+}
+
+:global(.arrow-prev) {
+  display: block;
+  background-image: url("../../../../../assets/icons/leftArrowBookingSteps.svg");
+  background-repeat: no-repeat;
+  background-size: 21px auto;
+  background-position: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  width: 38.09px;
+  height: 39.09px;
+  position: absolute;
+  bottom: 0;
+  left: 46%;
+  margin-bottom: 2rem;
+  &:hover {
+    cursor: pointer;
+  }
+  @media screen and(max-width: 1200px) {
+    left: 42%;
+  }
+  @media screen and (max-width: 800px) {
+    left: 38%;
+  }
+}
