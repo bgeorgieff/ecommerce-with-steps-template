@@ -21,8 +21,8 @@ export const getNav = (user) => {
       link: "/contact-us",
     },
     {
-      option: "Log Out",
-      link: "/logout",
+      option: `${user?.result.givenName}`,
+      link: "/profile",
     },
   ];
 

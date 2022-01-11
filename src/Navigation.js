@@ -8,6 +8,7 @@ import {
   BookingSteps,
   About,
   LogOut,
+  Profile,
 } from "./pages";
 
 const Navigation = () => {
@@ -30,6 +31,7 @@ const Navigation = () => {
         />
         <Route exact path="/about-us" component={About} />
         <Route exact path="/logout" render={() => <LogOut />} />
+        <Route exact path="/profile" component={Profile} />
       </Switch>
     </ScrollToTop>
   );

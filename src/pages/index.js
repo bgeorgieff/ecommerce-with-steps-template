@@ -3,4 +3,5 @@ export { default as About } from "./About";
 export { default as AuthPage } from "./AuthPage";
 export { default as BookingSteps } from "./BookingSteps";
 export { default as ServicePage } from "./ServicePage";
-export { default as LogOut } from "./LogOut";
+export { default as LogOut } from "./Profile/partials/LogOut";
+export { default as Profile } from "./Profile";
