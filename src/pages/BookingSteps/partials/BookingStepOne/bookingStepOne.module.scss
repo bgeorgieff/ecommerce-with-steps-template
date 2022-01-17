@@ -41,3 +41,36 @@
     }
   }
 }
+
+.dateContainer {
+  background-color: #2d69b3;
+  width: 90%;
+  height: 111px;
+  border-radius: 16px;
+  .dateTxt {
+    color: white;
+    line-height: 24px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .dateAndTime {
+    color: #2d69b3 !important;
+    border: 1px solid #2d69b3;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 240px;
+    background-image: url("../../../../assets/icons/down-arrow-step-2.svg");
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #2d69b3 !important;
+    }
+    &::-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #2d69b3 !important;
+    }
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #2d69b3 !important;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.profileDetails {
+  height: 80vh;
+  border-left: 1px solid #b2b3b4;
+}
+
+.navItem {
+  width: 50%;
+  margin-left: auto;
+}
+
+.activeMenu {
+  color: #b2b3b4 !important;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.activeMenu[aria-selected="true"] {
+  color: #2d69b3 !important;
+}

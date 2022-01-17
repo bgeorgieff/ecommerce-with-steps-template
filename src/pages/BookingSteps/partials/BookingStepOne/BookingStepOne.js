@@ -6,11 +6,11 @@ import DeliveryDetails from "./DeliveryDetails";
 import LocationForm from "./LocationForm";
 import { BookingStepButtons } from "components";
 import styles from "./bookingStepOne.module.scss";
+import clsx from "clsx";
 import { useForm } from "react-hook-form";
 
 const BookingStepOne = () => {
   const { register, handleSubmit } = useForm();
-
   const dispatch = useDispatch();
   const bookingDetails = useSelector(
     (state) => state.bookingReducer.bookingDetails
@@ -65,8 +65,10 @@ const BookingStepOne = () => {
       <Form onSubmit={handleSubmit((data) => handleStepOneForm(data))}>
         <Row className="mb-5 mt-3">
           <Col
-            lg={12}
-            className={`${styles["location-bg"]} mt-2 mb-5 my-md-5 d-flex justify-content-center align-items-center`}
+            className={clsx(
+              styles["location-bg"],
+              "mt-2 mb-5 my-md-5 d-flex justify-content-center align-items-center"
+            )}
           >
             <LocationForm
               setAddress={{ ...register("address") }}
@@ -74,8 +76,44 @@ const BookingStepOne = () => {
             />
           </Col>
         </Row>
+        <Row>
+          <Col className="d-flex justify-content-center mt-5">
+            <div
+              className={clsx(
+                "d-flex justify-content-center align-items-center",
+                styles.dateContainer
+              )}
+            >
+              <div className="me-5">
+                <p className={styles.dateTxt}>
+                  Choose date and time for your reservation
+                </p>
+              </div>
+              <Form.Group>
+                <Form.Select
+                  aria-label="Default select"
+                  defaultValue="Date"
+                  {...register("date")}
+                  className={clsx(styles.dateAndTime, "mx-2")}
+                >
+                  <option disabled>Date</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group>
+                <Form.Select
+                  aria-label="Default select"
+                  defaultValue="Time"
+                  {...register("time")}
+                  className={clsx(styles.dateAndTime, "mx-2")}
+                >
+                  <option disabled>Time</option>
+                </Form.Select>
+              </Form.Group>
+            </div>
+          </Col>
+        </Row>
         <Row className="my-5">
-          <Col className="mt-5">
+          <Col className="mt-3">
             <DeliveryDetails
               setEmail={{ ...register("email") }}
               setFirstName={{ ...register("firstName") }}

@@ -1,0 +1,19 @@
+button {
+  background-color: transparent;
+  padding: 2px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  background-image: url("../../../../../assets/icons/rating-selected.svg");
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 15px;
+}
+.off {
+  background-image: url("../../../../../assets/icons/rating-unselected.svg");
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 15px;
+}

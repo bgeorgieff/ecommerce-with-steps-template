@@ -29,10 +29,10 @@ const LocationForm = (props) => {
                 "booking-forms-down-arrow"
               )}
               aria-label="Default select"
-              defaultValue={"Choose District"}
+              defaultValue="il seciniz"
               {...props.setAddress}
             >
-              <option disabled>Choose District</option>
+              <option disabled>il seciniz</option>
 
               <option>{props.address}</option>
             </Form.Select>
@@ -44,10 +44,10 @@ const LocationForm = (props) => {
                 "booking-forms-down-arrow"
               )}
               aria-label="Default select"
-              defaultValue={"Choose District"}
+              defaultValue="ilce seciniz"
               {...props.setCity}
             >
-              <option disabled>Choose District</option>
+              <option disabled>ilce seciniz</option>
             </Form.Select>
           </div>
           <div className={styles["find-my-location"]}>

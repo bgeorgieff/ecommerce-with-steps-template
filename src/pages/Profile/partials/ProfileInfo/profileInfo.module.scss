@@ -1,0 +1,20 @@
+.formContainer {
+  width: 80%;
+  .labelText {
+    color: #b2b3b4;
+  }
+  .inputField {
+    background: #ffffff;
+    border: 1px solid #2d69b3;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: #2d69b3;
+  }
+  button {
+    width: 160px;
+    height: 40px;
+    background-color: #2d69b3;
+    color: white;
+    border-radius: 8px;
+  }
+}

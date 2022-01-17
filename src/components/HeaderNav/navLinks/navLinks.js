@@ -4,8 +4,11 @@ import clsx from "clsx";
 
 import facebookImg from "assets/icons/fb-nav-img.svg";
 import instagramImg from "assets/icons/insta-nav-img.svg";
+import { useSelector } from "react-redux";
 
 const NavLinks = ({ children }) => {
+  const user = useSelector((state) => state.authReducer?.authData);
+
   return (
     <>
       <div id={styles["nav-bar-socials"]}>
@@ -20,8 +23,10 @@ const NavLinks = ({ children }) => {
         <Link
           key={i}
           className={clsx(
-            styles["navigation-links"],
-            "mx-2 my-2 align-self-lg-center"
+            "mx-2 my-2 align-self-lg-center",
+            i === children.length - 1 && user
+              ? styles.userLink
+              : styles["navigation-links"]
           )}
           to={e.link}
         >

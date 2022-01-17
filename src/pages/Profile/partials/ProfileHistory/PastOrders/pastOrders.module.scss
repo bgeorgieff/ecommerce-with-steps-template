@@ -1,0 +1,32 @@
+.orderContainer {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  .orderDetailsContainer {
+    margin-top: 0.8rem;
+  }
+  .orderDetails {
+    line-height: 19px;
+    color: #2d69b3;
+  }
+  .orderTxt {
+    line-height: 19px;
+    color: #b2b3b4;
+  }
+  .orderTxtDelivered {
+    line-height: 19px;
+    color: #36a341;
+  }
+  .imgContainer {
+    width: 40px;
+    height: 40px;
+  }
+  .divider {
+    border-bottom: 1px solid #2d69b3;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
